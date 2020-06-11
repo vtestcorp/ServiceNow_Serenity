@@ -5,6 +5,7 @@ import net.serenitybdd.cucumber.CucumberWithSerenity;
 import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
-@CucumberOptions(features="src/test/resources/features/incident_user/incident_number_format.feature")
-public class VerifyIncidentNumber  {
+@CucumberOptions(features = "src/test/resources/features/incident_user/incident_number_format.feature", tags = {
+		"@Smoke" })
+public class VerifyIncidentNumber {
 }
