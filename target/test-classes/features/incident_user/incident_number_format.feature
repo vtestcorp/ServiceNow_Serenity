@@ -34,7 +34,7 @@ Scenario Outline: Ensure that ITIL user role can create a new Incident
     | ITIL.User.1   | Spot$123 |
 
     
-     @Smoke
+     #@Smoke
   Scenario Outline: Ensure that ITIL user can search for the incident using search functionality
     Given I Login to ServiceNow Application with valid credentials '<UserID>' and '<Password>'
     Then User Clicks on Incidents tab on dashboard
