@@ -28,7 +28,7 @@ import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.PageObject;
 
-@DefaultUrl("https://dev83486.service-now.com/")
+@DefaultUrl("add current instance URL")
 
 public class HomePage extends PageObject {
 	public String new_Incidentnum;
@@ -68,11 +68,16 @@ public class HomePage extends PageObject {
 	WebElementFacade attchment_popup;
 	@FindBy(xpath = "//input[@value=\"Choose file\"]")
 	WebElementFacade choose_file_button;
-	@FindBy(xpath = "(//tbody[@id=\"attachment_table_body\"]//tr//td//input[contains(@aria-label,\"Select attachment \")])[1]")
+	@FindBy(xpath = "(//form[@action=\"sys_attachment.do?DELETE\"]//input[@aria-label=\"Select attachment imagefile.jpg for deletion\"])[1]")
 	WebElementFacade select_first_attachment;
 	@FindBy(xpath = "//input[@id='removeButton']")
 	WebElementFacade remove_button;
-
+	@FindBy(xpath = "//button[@id='attachment_closemodal']")
+	WebElementFacade close_attchment;
+	@FindBy(xpath = "//button[@id='sysverb_delete']")
+	WebElementFacade Delete_button;
+	@FindBy(xpath = "//h1[@id='delete_confirm_form_title']")
+	WebElementFacade Delete_confirmation;
 	@FindBy(xpath = "//button[@id='sysverb_new']//following::input[1]")
 	WebElementFacade search_Button;
 	@FindBy(xpath = "//a[@id='087800c1c0a80164004e32c8a64a97c9']//div[@class='sn-widget-list-title'][contains(text(),'Incidents')]")
@@ -228,9 +233,10 @@ public class HomePage extends PageObject {
 		assertEquals(oldsize, size);
 	}
 
-	public void removeattchments() {
-		// getDriver().switchTo().frame(0);
-		new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(select_first_attachment));
+	public void removeattchments() throws InterruptedException {
+		getDriver().switchTo().frame(0);
+		Thread.sleep(6000);
+		new WebDriverWait(getDriver(), 40).until(ExpectedConditions.visibilityOf(select_first_attachment));
 		select_first_attachment.click();
 		remove_button.click();
 	}
@@ -319,5 +325,21 @@ public class HomePage extends PageObject {
 		}
 
 	}
-
+public void clicknewincident() {
+	load_page();
+	getDriver().switchTo().defaultContent();
+	Incidents.click();
+	getDriver().switchTo().frame(0);
+	new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(Click_firstIncident));
+	Click_firstIncident.click();
+	//getDriver().switchTo().frame(0);
+//	new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(Delete_button));
+//	Delete_button.click();
+//	assert(Delete_confirmation.isDisplayed());
+}
+public void deletebutton() {
+	new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(Delete_button));
+	Delete_button.click();
+	assert(Delete_confirmation.isDisplayed());	
+}
 }

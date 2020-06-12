@@ -1,13 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: net.thucydides.showcase.cucumber.VerifyIncidentNumber
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 296.302 sec <<< FAILURE! - in net.thucydides.showcase.cucumber.VerifyIncidentNumber
-Ensure that ITIL user can search for the incident using search functionality(All related test scenarios to Incident User)  Time elapsed: 82.494 sec  <<< FAILURE!
-org.junit.ComparisonFailure: expected:<[]> but was:<[1234]>
-	at org.junit.Assert.assertEquals(Assert.java:115)
-	at org.junit.Assert.assertEquals(Assert.java:144)
-	at net.thucydides.showcase.cucumber.pages.HomePage.printTableResults(HomePage.java:315)
-	at net.thucydides.showcase.cucumber.pages.HomePage.searchIncident(HomePage.java:285)
-	at net.thucydides.showcase.cucumber.steps.VerifyIncidentNumberScenarioSteps.user_Search_for_the_incident_using_search_functionality(VerifyIncidentNumberScenarioSteps.java:90)
-	at ?.User Search for the incident using search functionality(src/test/resources/features/incident_user/incident_number_format.feature:45)
-
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 72.036 sec - in net.thucydides.showcase.cucumber.VerifyIncidentNumber

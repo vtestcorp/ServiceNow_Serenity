@@ -56,11 +56,19 @@ public class IncidentSteps extends ScenarioSteps {
     	homePage.addattchments();
     }
     @Step
-    public void remove_attachment() {
+    public void remove_attachment() throws InterruptedException {
         homePage.removeattchments();
     }
     @Step
     public void verify_remove_attachment() {
     	homePage.verifyremovedattachment();
+    }
+    @Step
+    public void click_new_incident() {
+    	homePage.clicknewincident();
+    }
+    @Step 
+    public void delete_button() {
+    	homePage.deletebutton();
     }
     }

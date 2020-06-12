@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="net.thucydides.showcase.cucumber.VerifyIncidentNumber" time="295.58" tests="4" errors="0" skipped="0" failures="1">
+<testsuite name="net.thucydides.showcase.cucumber.VerifyIncidentNumber" time="71.196" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_241\jre\bin"/>
@@ -45,7 +45,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_241\jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher install"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean verify"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="en"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -64,80 +64,5 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="Ensure that &quot;Number&quot; field is autopopulated as with prefix INC with 7 digits starting at 10,000" classname="All related test scenarios to Incident User" time="80.946"/>
-  <testcase name="Ensure that ITIL user role can create a new Incident" classname="All related test scenarios to Incident User" time="63.898"/>
-  <testcase name="Ensure that Incidents can have Attachments added" classname="All related test scenarios to Incident User" time="68.242"/>
-  <testcase name="Ensure that ITIL user can search for the incident using search functionality" classname="All related test scenarios to Incident User" time="82.494">
-    <failure message="expected:&lt;[]&gt; but was:&lt;[1234]&gt;" type="org.junit.ComparisonFailure"><![CDATA[org.junit.ComparisonFailure: expected:<[]> but was:<[1234]>
-	at org.junit.Assert.assertEquals(Assert.java:115)
-	at org.junit.Assert.assertEquals(Assert.java:144)
-	at net.thucydides.showcase.cucumber.pages.HomePage.printTableResults(HomePage.java:315)
-	at net.thucydides.showcase.cucumber.pages.HomePage.searchIncident(HomePage.java:285)
-	at net.thucydides.showcase.cucumber.steps.VerifyIncidentNumberScenarioSteps.user_Search_for_the_incident_using_search_functionality(VerifyIncidentNumberScenarioSteps.java:90)
-	at ✽.User Search for the incident using search functionality(src/test/resources/features/incident_user/incident_number_format.feature:45)
-]]></failure>
-    <system-out><![CDATA[ITIL.User.1
-Spot$123
-]]></system-out>
-    <system-err><![CDATA[214285 [main] INFO net.thucydides.core.steps.ConsoleLoggingListener - 
-        __    _____ _____ ____ _____   ____   _    ____  ____  _____ ____  
-  _     \ \  |_   _| ____/ ___|_   _| |  _ \ / \  / ___|/ ___|| ____|  _ \ 
- (_)_____| |   | | |  _| \___ \ | |   | |_) / _ \ \___ \\___ \|  _| | | | |
-  _|_____| |   | | | |___ ___) || |   |  __/ ___ \ ___) |___) | |___| |_| |
- (_)     | |   |_| |_____|____/ |_|   |_| /_/   \_\____/|____/|_____|____/ 
-        /_/                                                                
-
-TEST PASSED: Ensure that Incidents can have Attachments added
-----------------------------------------------------------------------------
-214286 [main] INFO net.thucydides.core.steps.ConsoleLoggingListener - 
- _____ _____ ____ _____   ____ _____  _    ____ _____ _____ ____  
-|_   _| ____/ ___|_   _| / ___|_   _|/ \  |  _ \_   _| ____|  _ \ 
-  | | |  _| \___ \ | |   \___ \ | | / _ \ | |_) || | |  _| | | | |
-  | | | |___ ___) || |    ___) || |/ ___ \|  _ < | | | |___| |_| |
-  |_| |_____|____/ |_|   |____/ |_/_/   \_\_| \_\|_| |_____|____/ 
-                                                                  
-
-TEST STARTED: Ensure that ITIL user can search for the incident using search functionality
--------------------------------------------------------------------(all-related-test-scenarios-to-incident-user;ensure-that-itil-user-can-search-for-the-incident-using-search-functionality)
-Jun 12, 2020 10:15:00 AM org.openqa.selenium.remote.DesiredCapabilities firefox
-INFO: Using `new FirefoxOptions()` is preferred to `DesiredCapabilities.firefox()`
-Jun 12, 2020 10:15:00 AM org.openqa.selenium.remote.DesiredCapabilities firefox
-INFO: Using `new FirefoxOptions()` is preferred to `DesiredCapabilities.firefox()`
-1591937100883	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Admin\\AppData\\Local\\Temp\\rust_mozprofile.ywzl0EQeaH2G"
-JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
-1591937103944	Marionette	INFO	Listening on port 14606
-1591937104000	Marionette	WARN	TLS certificate errors will be ignored for this session
-Jun 12, 2020 10:15:04 AM org.openqa.selenium.remote.ProtocolHandshake createSession
-INFO: Detected dialect: W3C
-JavaScript warning: https://dev83486.service-now.com/navpage.do, line 278: unreachable code after return statement
-JavaScript error: https://dev83486.service-now.com/scripts/doctype/js_includes_doctype.jsx?v=12-17-2019_0856&lp=Sun_May_10_04_05_53_PDT_2020&c=6_88, line 17037: SyntaxError: JSON.parse: unexpected end of data at line 1 column 1 of the JSON data
-JavaScript error: https://dev83486.service-now.com/scripts/angular/angular-sanitize.min.jsx?v=12-17-2019_0856, line 11: TypeError: h is undefined
-JavaScript error: https://dev83486.service-now.com/scripts/controllers/controller.changeLayout.jsx?v=12-17-2019_0856, line 2: ReferenceError: angular is not defined
-JavaScript error: https://dev83486.service-now.com/scripts/services/service.homeServerService.jsx?v=12-17-2019_0856, line 2: ReferenceError: angular is not defined
-JavaScript error: https://dev83486.service-now.com/scripts/services/service.layoutService.jsx?v=12-17-2019_0856, line 2: ReferenceError: angular is not defined
-JavaScript error: https://dev83486.service-now.com/scripts/directives/directive.clickOutside.jsx?v=12-17-2019_0856, line 2: ReferenceError: angular is not defined
-JavaScript error: https://dev83486.service-now.com/home.do?, line 273: ReferenceError: initRefresh is not defined
-JavaScript error: https://dev83486.service-now.com/home.do?, line 351: ReferenceError: GwtGrid is not defined
-JavaScript error: https://dev83486.service-now.com/home.do?, line 370: TypeError: glideGrid is undefined
-1591937182078	Marionette	INFO	Stopped listening on port 14606
-
-###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
-
-
-###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
-
-296443 [main] ERROR net.thucydides.core.steps.ConsoleLoggingListener - 
-           __  _____ _____ ____ _____   _____ _    ___ _     _____ ____  
-  _       / / |_   _| ____/ ___|_   _| |  ___/ \  |_ _| |   | ____|  _ \ 
- (_)_____| |    | | |  _| \___ \ | |   | |_ / _ \  | || |   |  _| | | | |
-  _|_____| |    | | | |___ ___) || |   |  _/ ___ \ | || |___| |___| |_| |
- (_)     | |    |_| |_____|____/ |_|   |_|/_/   \_\___|_____|_____|____/ 
-          \_\                                                            
-
-TEST FAILED: Ensure that ITIL user can search for the incident using search functionality
---------------------------------------------------------------------------
-296571 [main] ERROR net.thucydides.core.steps.ConsoleLoggingListener - TEST FAILED AT STEP Then User Search for the incident using search functionality | Incident Number | | 1234 |
-296571 [main] ERROR net.thucydides.core.steps.ConsoleLoggingListener - expected:<[]> but was:<[1234]>
-]]></system-err>
-  </testcase>
+  <testcase name="Ensure that Incident can be cancelled" classname="All related test scenarios to Incident User" time="71.196"/>
 </testsuite>
