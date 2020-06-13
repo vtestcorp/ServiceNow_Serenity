@@ -67,7 +67,7 @@ public class VerifyIncidentNumberScenarioSteps {
 	}
 
 	@When("I Remove an attachment")
-	public void iRemoveAnAttachment() {
+	public void iRemoveAnAttachment() throws InterruptedException {
 		incident.remove_attachment();
 	}
 
@@ -91,7 +91,14 @@ public class VerifyIncidentNumberScenarioSteps {
 
 			e.printStackTrace();
 		}
-
+	}
+	@When("I Click Incidents and open any incident")
+	public void iClickOnNewButtonToCreateAnIncident() {
+		incident.click_new_incident();
+	}
+	@Then("I click on Delete")
+	public void iClickOnDelete() {
+		incident.delete_button();
 	}
 
 	@Then("^User Search for the incident in My Open Incidents List$")
