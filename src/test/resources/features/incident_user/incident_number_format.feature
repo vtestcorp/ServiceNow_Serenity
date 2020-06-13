@@ -93,8 +93,8 @@ Feature: All related test scenarios to Incident User
     Then user click on More Options presented as three dots
 
     Examples: 
-      | UserID | Password     |
-      | admin  | ssBk9O2aGFBv |
+      | UserID | Password |
+      |        |          |
 
   #Then User Search for the incident using search functionality
   #| Incident Number |
