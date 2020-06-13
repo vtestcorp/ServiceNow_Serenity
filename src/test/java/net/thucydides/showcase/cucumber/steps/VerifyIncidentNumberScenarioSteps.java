@@ -8,9 +8,13 @@ import cucumber.api.java.en.When;
 import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.showcase.cucumber.pages.HomePage;
+import net.thucydides.showcase.cucumber.pages.Utils;
 import net.thucydides.showcase.cucumber.steps.serenity.IncidentSteps;
 import static org.assertj.core.api.Assertions.assertThat;
 import java.util.Map;
+
+import com.ibm.icu.impl.Utility;
+
 import java.awt.AWTException;
 import java.util.List;
 
@@ -25,7 +29,7 @@ public class VerifyIncidentNumberScenarioSteps {
 	public void iLoginToServiceNowApplicationWithValidCredentials(String userId, String password)
 			throws InterruptedException {
 		incident.opens_home_page();
-		incident.account_login(userId, password);
+		incident.account_login(Utils.admin_Username(), Utils.admin_Password());
 	}
 
 	@When("I Create New Incident and get Incident Number Format")
@@ -92,10 +96,12 @@ public class VerifyIncidentNumberScenarioSteps {
 			e.printStackTrace();
 		}
 	}
+
 	@When("I Click Incidents and open any incident")
 	public void iClickOnNewButtonToCreateAnIncident() {
 		incident.click_new_incident();
 	}
+
 	@Then("I click on Delete")
 	public void iClickOnDelete() {
 		incident.delete_button();
