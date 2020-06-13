@@ -28,7 +28,7 @@ import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.PageObject;
 
-@DefaultUrl("https://dev83486.service-now.com/")
+@DefaultUrl("https://dev95151.service-now.com/")
 
 public class HomePage extends PageObject {
 	public String new_Incidentnum;
@@ -51,6 +51,7 @@ public class HomePage extends PageObject {
 	@FindBy(xpath = "//span[@class='form_display_value']")
 	WebElementFacade get_IncidentNum;
 	@FindBy(xpath = "//select[@id=\"IO:5a33d0ef0a0a0b9b007b906f6c589c57\"]")
+
 	WebElementFacade select_urgency;
 	@FindBy(xpath = "//textarea[@id='IO:3f272c500a0a0b990059c24380a2bc02']")
 	WebElementFacade more_information;
@@ -80,6 +81,18 @@ public class HomePage extends PageObject {
 
 	@FindBy(xpath = "//table[@id='incident_table']")
 	WebElementFacade mytable;
+
+	@FindBy(xpath = "//div[@id='window.com.glide.ui.portal.RenderDashboard_fd7c1cb8-683c-4839-aa4c-6871229672bb']//table[contains(@class,'drag_section_header')]")
+	WebElementFacade myOpenIncidents_Table;
+
+	@FindBy(xpath = "//table[@id='incident_table']")
+	WebElementFacade systemAdmin_Incidents_Table;
+
+	@FindBy(xpath = "//a[contains(text(),'INC0010111')]")
+	WebElementFacade incidentNum;
+
+	@FindBy(xpath = "//button[@id='header_add_attachment']//following::button[3]")
+	WebElementFacade toggleMoreOptions;
 
 	Select select;
 	public File file;
@@ -290,6 +303,47 @@ public class HomePage extends PageObject {
 	}
 
 	@Step
+	public void searchIncident_MyOpenIncidents(String value) {
+
+		try {
+			getDriver().switchTo().frame(0);
+			new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(myOpenIncidents_Table));
+
+			List<WebElement> rows_table = myOpenIncidents_Table.findElements(By.tagName("tr"));
+
+			int rows_count = rows_table.size();
+
+			for (int row = 0; row < rows_count; row++) {
+
+				List<WebElement> Columns_row = rows_table.get(row).findElements(By.tagName("td"));
+
+				int columns_count = Columns_row.size();
+
+				for (int column = 0; column < columns_count; column++) {
+
+					String celtext = Columns_row.get(column).getText();
+
+					if (celtext.equals(value)) {
+
+						System.out.println("text is " + celtext);
+
+						assertEquals(celtext, value);
+					} else {
+						assertEquals(celtext, value);
+					}
+				}
+
+			}
+
+		} catch (
+
+		Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	@Step
 	public void printTableResults(String value) {
 
 		List<WebElement> rows_table = mytable.findElements(By.tagName("tr"));
@@ -316,6 +370,95 @@ public class HomePage extends PageObject {
 				}
 			}
 
+		}
+
+	}
+
+	/**
+	 * @author Tanveer
+	 * 
+	 * @since 6/12/2020
+	 */
+	@Step
+	public void clickIncidentFromTable(String value) throws InterruptedException {
+		getDriver().switchTo().frame(0);
+		// List<WebElement> rows_table =
+		// systemAdmin_Incidents_Table.findElements(By.tagName("tr"));
+		//
+		// int rows_count = rows_table.size();
+		//
+		// for (int row = 0; row < rows_count; row++) {
+		//
+		// List<WebElement> Columns_row =
+		// rows_table.get(row).findElements(By.tagName("td"));
+		//
+		// int columns_count = Columns_row.size();
+		//
+		// for (int column = 0; column < columns_count; column++) {
+		//
+		// String celtext = Columns_row.get(column).getText();
+		// System.out.println("text is " + celtext);
+		// if (celtext.equals(value)) {
+		//
+		// System.out.println("text is " + celtext);
+		// // getDriver().findElement(By.xpath("//a[contains(text(),'"
+		// // + value + "')]")).click();
+		//
+		// getDriver().findElement(By.linkText(value)).click();
+		//
+		// Thread.sleep(3000L);
+		//
+		// } else {
+		// assertEquals(celtext, value);
+		// }
+		// }
+		//
+		// }
+		incidentNum.click();
+
+	}
+
+	/**
+	 * @author Tanveer
+	 * 
+	 * @since 6/12/2020
+	 */
+	@Step
+	public void enter_FilterNavigator(String text) {
+
+		try {
+			getDriver().switchTo().frame(0);
+			new WebDriverWait(getDriver(), 30).until(ExpectedConditions.elementToBeClickable(filter));
+			// filter.click();
+			filter.sendKeys(text);
+			filter.click();
+			filter.sendKeys(Keys.ENTER);
+			// filter.sendKeys(Keys.ENTER);
+			// Robot robot = new Robot();
+			//// Thread.sleep(3000);
+			// robot.keyPress(KeyEvent.VK_ENTER);
+			// robot.keyRelease(KeyEvent.VK_ENTER);
+			Thread.sleep(5000L);
+			Thread.sleep(5000L);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	/**
+	 * @author Tanveer
+	 * 
+	 * @since 6/12/2020
+	 */
+	@Step
+	public void clickToggleButton() {
+		try {
+//			getDriver().switchTo().frame("gsft_main");
+			toggleMoreOptions.click();
+			Thread.sleep(5000L);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 
 	}

@@ -80,8 +80,7 @@ public class VerifyIncidentNumberScenarioSteps {
 	public void user_Clicks_on_Incidents_tab_on_dashboard() {
 		homePage.click_IncidenTab();
 	}
-	
-	
+
 	@Then("^User Search for the incident using search functionality$")
 	public void user_Search_for_the_incident_using_search_functionality(DataTable incidentNumber) {
 
@@ -94,4 +93,63 @@ public class VerifyIncidentNumberScenarioSteps {
 		}
 
 	}
+
+	@Then("^User Search for the incident in My Open Incidents List$")
+	public void user_Search_for_the_incident_in_My_Open_Incidents_List(DataTable IncidentNumber) {
+		try {
+			List<List<String>> number = IncidentNumber.raw();
+			homePage.searchIncident_MyOpenIncidents(number.get(1).get(0));
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+
+	}
+
+	/**
+	 * @author Tanveer
+	 * 
+	 * @since 6/12/2020
+	 */
+	@Then("^User enters text in Filter Navigator$")
+	public void user_enters_text_in_Filter_Navigator(DataTable searchText) {
+		try {
+			List<List<String>> text = searchText.raw();
+			homePage.enter_FilterNavigator(text.get(1).get(0));
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * @author Tanveer
+	 * 
+	 * @since 6/12/2020
+	 */
+
+	@Then("^User will click the incident$")
+	public void user_will_click_the_incident(DataTable number) {
+		try {
+			List<List<String>> inc_Number = number.raw();
+			homePage.clickIncidentFromTable(inc_Number.get(1).get(0));
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+
+	}
+
+	@Then("^user click on More Options presented as three dots$")
+	public void user_click_on_More_Options_presented_as_three_dots() {
+		try {
+
+			homePage.clickToggleButton();
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+
+	}
+
 }
