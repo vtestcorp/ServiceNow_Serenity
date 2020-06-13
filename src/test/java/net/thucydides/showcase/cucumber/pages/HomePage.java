@@ -28,7 +28,7 @@ import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.PageObject;
 
-@DefaultUrl("https://dev95151.service-now.com/")
+@DefaultUrl("add current instance URL")
 
 public class HomePage extends PageObject {
 	public String new_Incidentnum;
