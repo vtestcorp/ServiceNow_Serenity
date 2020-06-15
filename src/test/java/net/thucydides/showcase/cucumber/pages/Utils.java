@@ -5,12 +5,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
-import org.apache.http.auth.UsernamePasswordCredentials;
-
 public class Utils {
 
 	private static FileReader reader;
 	private static String adminUsername;
+	@SuppressWarnings("unused")
 	private static String adminPassword;
 	private static Properties p;
 
