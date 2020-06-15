@@ -49,7 +49,7 @@ public class mail  {
 
 					protected PasswordAuthentication getPasswordAuthentication() {
 
-					return new PasswordAuthentication("sukanya@vtestcorp.com", "password");
+					return new PasswordAuthentication("mail", "password");
 
 					}
 
@@ -61,7 +61,7 @@ public class mail  {
 			Message message = new MimeMessage(session);
 
 			// Set the from address
-			message.setFrom(new InternetAddress("sukanya@vtestcorp.com"));
+			message.setFrom(new InternetAddress("mail"));
 
 			// Set the recipient address
 			message.setRecipients(Message.RecipientType.TO,InternetAddress.parse("sukanya@vtestcorp.com"));

@@ -25,8 +25,8 @@ public class VerifyIncidentNumberScenarioSteps {
 
 	HomePage homePage;
 
-	@Given("I Login to ServiceNow Application with valid credentials '(.*)' and '(.*)'")
-	public void iLoginToServiceNowApplicationWithValidCredentials(String userId, String password)
+	@Given("I Login to ServiceNow Application with valid credentials")
+	public void iLoginToServiceNowApplicationWithValidCredentials()
 			throws InterruptedException {
 		incident.opens_home_page();
 		incident.account_login(Utils.admin_Username(), Utils.admin_Password());

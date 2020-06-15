@@ -1,10 +1,10 @@
 Feature: All related test scenarios to ESS User
 
 
- @TC03
- #//pending because ess user does not exist in build
-  Scenario Outline: Ensure that ESS user can search for the incident using search functionality
-    Given I Login to ServiceNow Application with valid credentials '<UserID>' and '<Password>'
+
+ #pending because ess user does not exist in build
+  Scenario: Ensure that ESS user can search for the incident using search functionality
+    Given I Login to ServiceNow Application with valid credentials 
     #When User cliks on New Button to create an incident
     #And User selects value from More Information dropdown
       #| 3 - Low |
@@ -14,9 +14,6 @@ Feature: All related test scenarios to ESS User
       | Incident Number |
       | INC0010087      |
 
-    Examples: 
-      | UserID      | Password |
-      |             |          |
-
+   
       
     

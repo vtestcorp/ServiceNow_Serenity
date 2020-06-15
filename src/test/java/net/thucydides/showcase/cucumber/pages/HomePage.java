@@ -28,7 +28,7 @@ import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.PageObject;
 
-@DefaultUrl("add current instance URL")
+@DefaultUrl("https://dev95151.service-now.com/")
 
 public class HomePage extends PageObject {
 	public String new_Incidentnum;
@@ -98,6 +98,10 @@ public class HomePage extends PageObject {
 
 	@FindBy(xpath = "//button[@id='header_add_attachment']//following::button[3]")
 	WebElementFacade toggleMoreOptions;
+	@FindBy(xpath = "//span[@class='list_view']")
+	WebElementFacade listView;
+	
+	
 
 	Select select;
 	public File file;
@@ -156,12 +160,19 @@ public class HomePage extends PageObject {
 	public void createincidentgetnumber() throws InterruptedException {
 		load_page();
 		getDriver().switchTo().defaultContent();
-		new WebDriverWait(getDriver(), 40).until(ExpectedConditions.visibilityOf(Incidents));
+		Incidents.click();
 		getDriver().switchTo().frame(0);
-		create_incident.click();
-		load_page();
-		new WebDriverWait(getDriver(), 40).until(ExpectedConditions.visibilityOf(select_urgency));
-		Utility.selectByText(select_urgency, "2 - Medium");
+		new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(listView));
+		listView.click();
+		new_Button.click();
+//		load_page();
+//		getDriver().switchTo().defaultContent();
+//		new WebDriverWait(getDriver(), 40).until(ExpectedConditions.visibilityOf(Incidents));
+//		getDriver().switchTo().frame(0);
+//		create_incident.click();
+//		load_page();
+//		new WebDriverWait(getDriver(), 40).until(ExpectedConditions.visibilityOf(select_urgency));
+//		Utility.selectByText(select_urgency, "2 - Medium");
 		more_information.sendKeys("Test Parent Incident");
 		waitforelement(submit_button);
 		scrollToElement_N_click(submit_button);

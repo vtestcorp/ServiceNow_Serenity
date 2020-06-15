@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: net.thucydides.showcase.cucumber.VerifyIncidentNumber
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 72.036 sec - in net.thucydides.showcase.cucumber.VerifyIncidentNumber
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 75.486 sec - in net.thucydides.showcase.cucumber.VerifyIncidentNumber
