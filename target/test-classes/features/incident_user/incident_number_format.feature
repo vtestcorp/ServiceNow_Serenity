@@ -20,32 +20,13 @@ Feature: All related test scenarios to Incident User
     When I Navigate to Incidents and click on Attachment
     Then User should be able to add attachments
 
-    When  I Remove an attachment
-    Then User should be able to remove Attachment
+    #When  I Remove an attachment
+    #Then User should be able to remove Attachment
     
-
- 
-  Scenario: Ensure that ITIL user can search for the incident using search functionality
-    Given I Login to ServiceNow Application with valid credentials
-    Then User Clicks on Incidents tab on dashboard
-    Then User Search for the incident using search functionality
-  | Incident Number |
-  |  1234 |
-  
+    
    
-    Scenario: Ensure that ITIL user can search for the incident using search functionality
-    Given I Login to ServiceNow Application with valid credentials
-    Then User Clicks on Incidents tab on dashboard
-    And User selects value from More Information dropdown
-    | 3 - Low |
-    Then User will enter the description and click submit button
-    | Software Problem |
 
-    Then User Search for the incident using search functionality
-      | Incident Number |
-      | INC0010087      |
-
-  @Test
+  
   Scenario: Incident Analyst can see the email window pop
     Given I Login to ServiceNow Application with valid credentials
     Then User enters text in Filter Navigator
@@ -56,36 +37,31 @@ Feature: All related test scenarios to Incident User
       | INC0010008      |
     Then user click on More Options presented as three dots
 
- 
-
-  Then User Search for the incident using search functionality
-  | Incident Number |
-  |  1234 |
-
-    Then User Search for the incident using search functionality
-      | Incident Number |
-      | INC0010087      |
-
-   
-
-
-  
-  Scenario: Incident Analyst can see the email window pop
-    Given I Login to ServiceNow Application with valid credentials
-    Then User enters text in Filter Navigator
-      | Filter Navigator |
-      | Incidents        |
-    Then User will click the incident
-      | Incident Number |
-      | INC0010111      |
-    Then user click on More Options presented as three dots
-
-
-  
   
   Scenario: Ensure that Incident can be cancelled
     Given I Login to ServiceNow Application with valid credentials
     When I Click Incidents and open any incident
     Then I click on Delete
+    
+    Scenario: Ensure that ITIL user can search for the incident using search functionality
+    Given I Login to ServiceNow Application with valid credentials
+    Then User Clicks on Incidents tab on dashboard
+    Then User Search for the incident using search functionality
+  | Incident Number |
+  |  INC0010002 |
+  
+  #Scenario: Ensure that ITIL user can search for the incident using search functionality
+    #Given I Login to ServiceNow Application with valid credentials
+    #Then User Clicks on Incidents tab on dashboard
+    #And User selects value from More Information dropdown
+    #| 3 - Low |
+    #Then User will enter the description and click submit button
+    #| Software Problem |
+    #Then User Search for the incident using search functionality
+  #| Incident Number |
+  #|  INC0010008 |
+  
+  
+  
 
     

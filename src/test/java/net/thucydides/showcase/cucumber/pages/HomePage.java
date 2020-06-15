@@ -21,6 +21,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.SN.util.Utility;
+
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.PageObject;
@@ -43,7 +45,7 @@ public class HomePage extends PageObject {
 	WebElementFacade create_incident;
 	@FindBy(xpath = "//button[@id='submit_button']")
 	WebElementFacade submit_button;
-	@FindBy(xpath = "//span[@class='form_display_value']")
+	@FindBy(xpath = "//div[@class='navbar-header']")
 	WebElementFacade get_IncidentNum;
 	@FindBy(xpath = "//select[@id=\"IO:5a33d0ef0a0a0b9b007b906f6c589c57\"]")
 
@@ -87,6 +89,10 @@ public class HomePage extends PageObject {
 
 	@FindBy(xpath = "//table[@id='incident_table']")
 	WebElementFacade systemAdmin_Incidents_Table;
+	@FindBy(xpath = "//strong[contains(text(),'Create Incident')]")
+	WebElementFacade createIncident_expand;
+	@FindBy(xpath = "//a[@class='sc_bottom_link']")
+	WebElementFacade view_all;
 
 	// @FindBy(xpath = "//a[text() ='" + value + "']")
 	// WebElementFacade incidentNum;
@@ -157,23 +163,19 @@ public class HomePage extends PageObject {
 	}
 
 	public void createincidentgetnumber() throws InterruptedException {
-		load_page();
-		getDriver().switchTo().defaultContent();
-		Incidents.click();
-		getDriver().switchTo().frame(0);
-		new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(listView));
-		listView.click();
-		new_Button.click();
-		// load_page();
-		// getDriver().switchTo().defaultContent();
-		// new WebDriverWait(getDriver(),
-		// 40).until(ExpectedConditions.visibilityOf(Incidents));
-		// getDriver().switchTo().frame(0);
-		// create_incident.click();
-		// load_page();
-		// new WebDriverWait(getDriver(),
-		// 40).until(ExpectedConditions.visibilityOf(select_urgency));
-		// Utility.selectByText(select_urgency, "2 - Medium");
+		
+		 load_page();
+		 getDriver().switchTo().defaultContent();
+		 new WebDriverWait(getDriver(),40).until(ExpectedConditions.visibilityOf(Incidents));
+		 getDriver().switchTo().frame(0);
+		 new WebDriverWait(getDriver(),40).until(ExpectedConditions.visibilityOf(view_all));
+		 view_all.click();
+		 new WebDriverWait(getDriver(),40).until(ExpectedConditions.visibilityOf(createIncident_expand));
+
+		 createIncident_expand.click();
+		 load_page();
+		 new WebDriverWait(getDriver(),40).until(ExpectedConditions.visibilityOf(select_urgency));
+		 Utility.selectByText(select_urgency, "2 - Medium");
 		more_information.sendKeys("Test Parent Incident");
 		waitforelement(submit_button);
 		scrollToElement_N_click(submit_button);
@@ -194,11 +196,18 @@ public class HomePage extends PageObject {
 
 	public void clicknewbutton() {
 		load_page();
-		getDriver().switchTo().defaultContent();
-		new WebDriverWait(getDriver(), 40).until(ExpectedConditions.visibilityOf(Incidents));
-		getDriver().switchTo().frame(0);
-		create_incident.click();
-		load_page();
+		 getDriver().switchTo().defaultContent();
+		 new WebDriverWait(getDriver(),40).until(ExpectedConditions.visibilityOf(Incidents));
+		 getDriver().switchTo().frame(0);
+		 new WebDriverWait(getDriver(),40).until(ExpectedConditions.visibilityOf(view_all));
+		 view_all.click();
+		 new WebDriverWait(getDriver(),40).until(ExpectedConditions.visibilityOf(createIncident_expand));
+
+		 createIncident_expand.click();
+		 load_page();
+
+		
+		 
 	}
 
 	public void completecreateincidentform(String dropdownValue) {

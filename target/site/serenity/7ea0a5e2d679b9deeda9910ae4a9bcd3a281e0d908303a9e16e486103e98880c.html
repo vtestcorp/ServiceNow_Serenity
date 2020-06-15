@@ -20,73 +20,45 @@
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
-<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 <!--[if IE 7]>
-<link rel="stylesheet" href="font-awesome/css/font-awesome-ie7.min.css">
-<![endif]--><!-- JQuery -->
-<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><!-- Bootstrap -->
+<!--<link rel="stylesheet" href="font-awesome/css/font-awesome-ie7.min.css">-->
+
+<link rel="stylesheet" href="fontawesome-free-5.3.1-web/css/all.css">
+<link rel="stylesheet" href="fontawesome-free-5.3.1-web/css/v4-shims.css">
+
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><link rel="stylesheet" href="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.css">
+<link rel="stylesheet" href="chartist/dist/chartist.min.css">
+<script src="chartist/dist/chartist.min.js"></script>
+<script src="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.js"></script>
+<!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.10.19/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.10.19/datatables.min.js"></script>
+
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<script src="bootstrap/js/bootstrap.min.js"></script><link rel="stylesheet" href="css/core.css"/>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="datatables/1.10.19/datatables.bootstrap4.min.js"></script>
+<link type="text/css" href="datatables/1.10.19/datatables.bootstrap4.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="css/core.css"/>
 <link rel="stylesheet" href="css/link.css"/>
 <link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/><!-- JQuery-UI -->
 <link type="text/css" href="jqueryui/1.11.2-start/jquery-ui.min.css" rel="Stylesheet" />
 <script type="text/javascript" src="jqueryui/1.11.2-start/jquery-ui.min.js"></script><!-- DataTables -->
-<link type="text/css" href="datatables/1.10.4/media/jqueryui/dataTables.jqueryui.css" rel="Stylesheet"/>
-<link type="text/css" href="css/tables.css" rel="stylesheet" />
+<link type="text/css" href="datatables/1.10.19/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.10.19/datatables.min.js"></script>
 
-<script type="text/javascript" src="datatables/1.10.4/media/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="datatables/1.10.4/media/jqueryui/dataTables.jqueryui.min.js"></script><!-- jQplot -->
-<!--[if IE]>
-<script language="javascript" type="text/javascript" src="excanvas/3/excanvas.compiled.js"></script>
-<![endif]--><link rel="stylesheet" type="text/css" href="jqplot/1.0.8/jquery.jqplot.min.css"/>
-<script type="text/javascript" src="jqplot/1.0.8/jquery.jqplot.min.js"></script>
-<script type="text/javascript" src="jqplot/1.0.8/plugins/jqplot.pieRenderer.min.js"></script>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="datatables/1.10.19/datatables.bootstrap4.min.js"></script>
+<link type="text/css" href="datatables/1.10.19/datatables.bootstrap4.min.css" rel="stylesheet" />
 
 
-    <script class="code" type="text/javascript">$(document).ready(function () {
-
-        // Results table
-        $('#req-results-table').DataTable({
-            "order": [
-                [ 2, "asc" ]
-            ],
-            "pageLength": 25
-        });
-        $('#test-results-table').DataTable({
-            "order": [
-                [ 2, "asc" ]
-            ],
-            "pageLength": 25
-        });
-        $('#examples-table').DataTable({
-            "order": [
-                [ 2, "asc" ]
-            ],
-            "pageLength": 25
-        });
-        $("#tabs").tabs();
-        $("#test-tabs").tabs();
-    })
-    ;
-    </script>
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $(".read-more-link").click(function () {
-                $(this).nextAll("div.read-more-text").toggle();
-                var isrc = $(this).find("img").attr('src');
-                if (isrc == 'images/plus.png') {
-                    $(this).find("img").attr("src", function () {
-                        return "images/minus.png";
-                    });
-                } else {
-                    $(this).find("img").attr("src", function () {
-                        return "images/plus.png";
-                    });
-                }
-            });
-        });
-    </script>
 </head>
 
 <body class="results-page">
@@ -101,18 +73,18 @@
 
 
 <div class="middlecontent">
-<div id="contenttop">
-    <div class="middlebg">
+    <div id="contenttop">
+        <div class="middlebg">
         <span class="breadcrumbs"><a href="index.html">Home</a>
             > <span class="truncate-60">Capabilities</span>
         </span>
+        </div>
+        <div class="rightbg"></div>
     </div>
-    <div class="rightbg"></div>
-</div>
 
-<div class="clr"></div>
+    <div class="clr"></div>
 
-<!--/* starts second table*/-->
+    <!--/* starts second table*/-->
 <div>
     <ul class="nav nav-tabs" role="tablist">
         <li >
@@ -128,271 +100,178 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="fa fa-comments-o"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 15-06-2020 16:07</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 15-06-2020 22:19</span>
     <br style="clear:left"/>
 </div>
 
-<div class="clr"></div>
+    <div class="clr"></div>
 
-<div id="beforetable"></div>
-<div id="results-dashboard">
-<div class="middlb">
-<div class="table">
-
-    <div id="tabs">
-            <ul>
-                    <li><a href="#tabs-1">
-                    Capabilities (1)
-                    </a></li>`
-            </ul>
-            <div id="tabs-1" class="capabilities-table">
-
-
-<div id="req_list_tests" class="table">
-    <div class="test-results">
-        <table id="req-results-table">
-            <thead>
-            <tr>
-                <th width="30" class="test-results-heading">&nbsp;</th>
-                <th width="65" class="test-results-heading">ID</th>
-                <th width="525" class="test-results-heading">Capability</th>
-                    <th width="65" class="test-results-heading">Features</th>
-                <th class="test-results-heading" width="75px">Automated<br/>Tests</th>
-                    <th class="test-results-heading" width="75px">Manual<br/>Tests</th>
-
-                <th width="125px" class="test-results-heading">Test Results</th>
-
-                <th width="125px" class="test-results-heading">Working Features</th>
-            </tr>
-            <tbody>
+    <div id="beforetable"></div>
+    <div id="results-dashboard">
+        <div class="middlb">
+            <div class="table">
 
 
 
-                <tr class="test-FAILURE requirementRow">
-                    <td class="requirementRowCell">
-                        <span class="status_icon"><i class='fa fa-times-circle failure-icon ' title='FAILURE'></i></span>
-                        <span style="display:none">3</span>
-                    </td>
-                    <td class="cardNumber requirementRowCell"></td>
 
-                    <td class="FAILURE-text requirementRowCell">
-                        <a href="javaScript:void(0)" class="read-more-link">
-                            <img src="images/plus.png" height="16"/></a>
-                        <span class="requirementName"><a
-                                href="52ac607fbe1c83a76063cdc37f32ac12b45c48e1b24592b9269b49193fb448b4.html">Incident user</a></span>
+<h4 class="requireent-type-heading">Capabilities</h4>
 
-                        <div class="requirementNarrative read-more-text"></div>
-                    </td>
+<table class="scenario-result table" id="requirements-table">
+    <thead>
+        <tr>
+            <th class="requirement-name-column" width="60%">Capability</th>
+            <th>ID</th>
+            <th>Automated Tests</th>
+                <th>Manual Tests</th>
+            <th>Results</th>
+            <th>Coverage</th>
+        </tr>
+    </thead>
+    <tbody>
 
-                        <td class="bluetext requirementRowCell">2</td>
 
-                    <td class="greentext highlighted-value requirementRowCell">2</td>
-<!--
-                    <td class="greentext requirementRowCell">1</td>
-                    <td class="bluetext requirementRowCell">0</td>
-                    <td class="redtext requirementRowCell">1</td>
-                    <td class="lightorangetext requirementRowCell">0</td>
-                    <td class="violettext requirementRowCell">0</td>
--->
-                        <td class="greentext highlighted-value requirementRowCell">0</td>
-<!--
-                        <td class="greentext requirementRowCell">0</td>
-                        <td class="bluetext requirementRowCell">0</td>
-                        <td class="redtext requirementRowCell">0</td>
-                        <td class="lightorangetext requirementRowCell">0</td>
-                        -->
+        <tr>
 
-                    <td width="125px" class="lightgreentext requirementRowCell">
+
+            <td> 
+                <a href="52ac607fbe1c83a76063cdc37f32ac12b45c48e1b24592b9269b49193fb448b4.html">Incident user</a></span>
+            </td>
+            <td> 
+                
+            </td>
+            <td>6</td>
+            <td>0</td>
+            <td>
+                <span class="status_icon"><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></span>
+                <span style="display:none">1</span>
+            </td>
+
+            <td width="165px" style="padding:0px;">
 
 
 <table>
     <tr>
-        <td width="40px">
-            <div class="small">50%</div>
+        <td width="40px" style="padding-top:4px;">
+            <div class="small" style="text-align:right;">100%</div>
         </td>
-        <td width="125px">
-            <div class="percentagebar"
-                 title="  - Total tests: 2
-  - Passing tests: 1 (50%)
-  - Failing tests: 1 (50%)
-  - Tests with errors: 0 (0%)
-  - Compromised tests 0 (0%)
-  - Pending tests: 0 (0%)
-  - Ignored or skipped tests: 0 (0%)"
-                 style="width: 125px;">
-                <div class="pendingbar"
-                     title="  - Total tests: 2
-  - Passing tests: 1 (50%)
-  - Failing tests: 1 (50%)
-  - Tests with errors: 0 (0%)
-  - Compromised tests 0 (0%)
-  - Pending tests: 0 (0%)
-  - Ignored or skipped tests: 0 (0%)"
-                     style="width: 125px;">
-                    <div class="ignoredbar"
-                         style="width: 125px;"
-                         title="  - Total tests: 2
-  - Passing tests: 1 (50%)
-  - Failing tests: 1 (50%)
+        <td style="min-width:12.5em;">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar"
+                     style="width: 100%; background-color:#30cb23;"
+                     aria-valuenow="6"
+                     aria-valuemin="0"
+                     aria-valuemax="6"
+                     title="  - Total tests: 6
+  - Passing tests: 6 (100%)
+  - Failing tests: 0 (0%)
   - Tests with errors: 0 (0%)
   - Compromised tests 0 (0%)
   - Pending tests: 0 (0%)
   - Ignored or skipped tests: 0 (0%)">
-                        <div class="compromisedbar"
-                             style="width: 125px;"
-                             title="  - Total tests: 2
-  - Passing tests: 1 (50%)
-  - Failing tests: 1 (50%)
+                </div>
+                <div class="progress-bar" role="progressbar"
+                     style="width: 0%; background-color:#A2C4EC;"
+                     aria-valuenow="0"
+                     aria-valuemin="0"
+                     aria-valuemax="6"
+                     title="  - Total tests: 6
+  - Passing tests: 6 (100%)
+  - Failing tests: 0 (0%)
   - Tests with errors: 0 (0%)
   - Compromised tests 0 (0%)
   - Pending tests: 0 (0%)
   - Ignored or skipped tests: 0 (0%)">
-                            <div class="errorbar"
-                                 style="width: 125px;"
-                                 title="  - Total tests: 2
-  - Passing tests: 1 (50%)
-  - Failing tests: 1 (50%)
+                </div>
+                <div class="progress-bar" role="progressbar"
+                     style="width: 0%; background-color:darkgrey;"
+                     aria-valuenow="0"
+                     aria-valuemin="0"
+                     aria-valuemax="6"
+                     title="  - Total tests: 6
+  - Passing tests: 6 (100%)
+  - Failing tests: 0 (0%)
   - Tests with errors: 0 (0%)
   - Compromised tests 0 (0%)
   - Pending tests: 0 (0%)
   - Ignored or skipped tests: 0 (0%)">
-                                <div class="failingbar"
-                                     style="width: 125px;"
-                                     title="  - Total tests: 2
-  - Passing tests: 1 (50%)
-  - Failing tests: 1 (50%)
+                </div>
+                <div class="progress-bar" role="progressbar"
+                     style="width: 0%; background-color:#EEE098;"
+                     aria-valuenow="0"
+                     aria-valuemin="0"
+                     aria-valuemax="6"
+                     title="  - Total tests: 6
+  - Passing tests: 6 (100%)
+  - Failing tests: 0 (0%)
   - Tests with errors: 0 (0%)
   - Compromised tests 0 (0%)
   - Pending tests: 0 (0%)
   - Ignored or skipped tests: 0 (0%)">
-                                    <div class="passingbar"
-                                         style="width: 62px;"
-                                         title="  - Total tests: 2
-  - Passing tests: 1 (50%)
-  - Failing tests: 1 (50%)
+                </div>
+                <div class="progress-bar" role="progressbar"
+                     style="width: 0%; background-color:#f8001f;"
+                     aria-valuenow="0"
+                     aria-valuemin="0"
+                     aria-valuemax="6"
+                     title="  - Total tests: 6
+  - Passing tests: 6 (100%)
+  - Failing tests: 0 (0%)
   - Tests with errors: 0 (0%)
   - Compromised tests 0 (0%)
   - Pending tests: 0 (0%)
   - Ignored or skipped tests: 0 (0%)">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                </div>
+                <div class="progress-bar" role="progressbar"
+                     style="width: 0%; background-color:darkorange;"
+                     aria-valuenow="0"
+                     aria-valuemin="0"
+                     aria-valuemax="6"
+                     title="  - Total tests: 6
+  - Passing tests: 6 (100%)
+  - Failing tests: 0 (0%)
+  - Tests with errors: 0 (0%)
+  - Compromised tests 0 (0%)
+  - Pending tests: 0 (0%)
+  - Ignored or skipped tests: 0 (0%)">
+                </div>
+                <div class="progress-bar" role="progressbar"
+                     style="width: 0%; background-color:fuchsia;"
+                     aria-valuenow="0"
+                     aria-valuemin="0"
+                     aria-valuemax="6"
+                     title="  - Total tests: 6
+  - Passing tests: 6 (100%)
+  - Failing tests: 0 (0%)
+  - Tests with errors: 0 (0%)
+  - Compromised tests 0 (0%)
+  - Pending tests: 0 (0%)
+  - Ignored or skipped tests: 0 (0%)">
                 </div>
             </div>
         </td>
     </tr>
 </table>
-                    </td>
+            </td>
 
-                    <td width="125px" class="lightgreentext requirementRowCell">
-
-
-<table>
-    <tr>
-        <td width="40px">
-            <div class="small">0%</div>
-        </td>
-        <td width="125px">
-            <div class="percentagebar"
-                 title="Incident user:
-  - Passing Features: 0 (0%
-  - Features Failing: 1 (50%
-  - Features Failing with errors: 0
-  - Compromised Features: 0
-  - Pending Features: 0
-  - Ignored or skipped Features: 0
-  - Untested Features: 1 (50%"
-                 style="width: 125px;">
-                <div class="pendingbar"
-                     title="Incident user:
-  - Passing Features: 0 (0%
-  - Features Failing: 1 (50%
-  - Features Failing with errors: 0
-  - Compromised Features: 0
-  - Pending Features: 0
-  - Ignored or skipped Features: 0
-  - Untested Features: 1 (50%"
-                     style="width: 62px;">
-                    <div class="ignoredbar"
-                         style="width: 62px;"
-                         title="Incident user:
-  - Passing Features: 0 (0%
-  - Features Failing: 1 (50%
-  - Features Failing with errors: 0
-  - Compromised Features: 0
-  - Pending Features: 0
-  - Ignored or skipped Features: 0
-  - Untested Features: 1 (50%">
-                        <div class="compromisedbar"
-                             style="width: 62px;"
-                             title="Incident user:
-  - Passing Features: 0 (0%
-  - Features Failing: 1 (50%
-  - Features Failing with errors: 0
-  - Compromised Features: 0
-  - Pending Features: 0
-  - Ignored or skipped Features: 0
-  - Untested Features: 1 (50%">
-                            <div class="errorbar"
-                                 style="width: 62px;"
-                                 title="Incident user:
-  - Passing Features: 0 (0%
-  - Features Failing: 1 (50%
-  - Features Failing with errors: 0
-  - Compromised Features: 0
-  - Pending Features: 0
-  - Ignored or skipped Features: 0
-  - Untested Features: 1 (50%">
-                                <div class="failingbar"
-                                     style="width: 62px;"
-                                     title="Incident user:
-  - Passing Features: 0 (0%
-  - Features Failing: 1 (50%
-  - Features Failing with errors: 0
-  - Compromised Features: 0
-  - Pending Features: 0
-  - Ignored or skipped Features: 0
-  - Untested Features: 1 (50%">
-                                    <div class="passingbar"
-                                         style="width: 0px;"
-                                         title="Incident user:
-  - Passing Features: 0 (0%
-  - Features Failing: 1 (50%
-  - Features Failing with errors: 0
-  - Compromised Features: 0
-  - Pending Features: 0
-  - Ignored or skipped Features: 0
-  - Untested Features: 1 (50%">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </td>
-    </tr>
+        </tr>
+    </tbody>
 </table>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+
+
 
             </div>
+        </div>
     </div>
-</div>
-</div>
-</div>
 </div>
 <div id="beforefooter"></div>
-<div id="bottomfooter">
-<span class="version">Serenity BDD version 1.9.9</span>
-</div>
 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <span class="version">Serenity BDD version 2.0.30</span>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>

@@ -22,119 +22,108 @@
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
-<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 <!--[if IE 7]>
-<link rel="stylesheet" href="font-awesome/css/font-awesome-ie7.min.css">
-<![endif]--><!-- JQuery -->
-<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><!-- Bootstrap -->
+<!--<link rel="stylesheet" href="font-awesome/css/font-awesome-ie7.min.css">-->
+
+<link rel="stylesheet" href="fontawesome-free-5.3.1-web/css/all.css">
+<link rel="stylesheet" href="fontawesome-free-5.3.1-web/css/v4-shims.css">
+
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><link rel="stylesheet" href="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.css">
+<link rel="stylesheet" href="chartist/dist/chartist.min.css">
+<script src="chartist/dist/chartist.min.js"></script>
+<script src="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.js"></script>
+<!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.10.19/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.10.19/datatables.min.js"></script>
+
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<script src="bootstrap/js/bootstrap.min.js"></script><link rel="stylesheet" href="css/core.css"/>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="datatables/1.10.19/datatables.bootstrap4.min.js"></script>
+<link type="text/css" href="datatables/1.10.19/datatables.bootstrap4.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="css/core.css"/>
 <link rel="stylesheet" href="css/link.css"/>
 <link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/><!-- JQuery-UI -->
 <link type="text/css" href="jqueryui/1.11.2-start/jquery-ui.min.css" rel="Stylesheet" />
 <script type="text/javascript" src="jqueryui/1.11.2-start/jquery-ui.min.js"></script><!-- DataTables -->
-<link type="text/css" href="datatables/1.10.4/media/jqueryui/dataTables.jqueryui.css" rel="Stylesheet"/>
-<link type="text/css" href="css/tables.css" rel="stylesheet" />
+<link type="text/css" href="datatables/1.10.19/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.10.19/datatables.min.js"></script>
 
-<script type="text/javascript" src="datatables/1.10.4/media/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="datatables/1.10.4/media/jqueryui/dataTables.jqueryui.min.js"></script><!-- jQplot -->
-<!--[if IE]>
-<script language="javascript" type="text/javascript" src="excanvas/3/excanvas.compiled.js"></script>
-<![endif]--><link rel="stylesheet" type="text/css" href="jqplot/1.0.8/jquery.jqplot.min.css"/>
-<script type="text/javascript" src="jqplot/1.0.8/jquery.jqplot.min.js"></script>
-<script type="text/javascript" src="jqplot/1.0.8/plugins/jqplot.pieRenderer.min.js"></script>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="datatables/1.10.19/datatables.bootstrap4.min.js"></script>
+<link type="text/css" href="datatables/1.10.19/datatables.bootstrap4.min.css" rel="stylesheet" />
 
 
 
-    <script class="code" type="text/javascript">$(document).ready(function () {
-        var plot1 = $.jqplot('coverage_pie_chart', [
-            [
-                ['Passing', 1],
-                ['Pending', 0],
-                ['Ignored', 0],
-                ['Failing', 1],
-                ['Errors',  0],
-                ['Compromised',  0],
-                ['Untested',  0],
-            ]
-        ], {
-            gridPadding: {top: 0, bottom: 38, left: 0, right: 0},
-            seriesColors: [
-                '#30cb23',
-                '#a2f2f2',
-                '#eeeadd',
-                '#f8001f',
-                '#fc6e1f',
-                'fuchsia',
-                'darkgrey'],
-            seriesDefaults: {
-                renderer: $.jqplot.PieRenderer,
-                trendline: {show: false},
-                rendererOptions: {padding: 8, showDataLabels: true}
-            },
-            legend: {
-                show: true,
-                placement: 'outside',
-                rendererOptions: {
-                    numberRows: 3
-                },
-                location: 's',
-                marginTop: '15px'
-            },
-            series: [
-                {label: '1 requirements tested successfully'},
-                {label: '0 requirements pending'},
-                {label: '0} requirements skipped'},
-                {label: '1} requirements with failures'},
-                {label: '0} requirements with errors'},
-                {label: '0} requirements compromised'},
-                {label: '0} requirements untested'},
-            ]
+    <script>
+
+        $(document).ready(function () {
+
+            var scenarioTable = $('.scenario-result-table').DataTable({
+
+                "order": [],
+                "language": {
+                    searchPlaceholder: "Filter",
+                    search: ""
+                }
+            });
+
+            $('.example-table table').DataTable({
+                searching: false,
+                ordering: false,
+                paging: false,
+                info: false
+            });
+
+            $('.example-table-in-scenario table').DataTable({
+                searching: false,
+                ordering: false,
+                paging: false,
+                info: false
+            });
+
+            $('#evidence-table').DataTable(
+                    {
+                        searching: false,
+                        ordering: false,
+                        paging: false,
+                        info: false
+                    }
+            );
+
+
+            $(".scenario-docs .card-body table").wrap("<div class='table-responsive'></div>");
+
+            $("#requirements-tabs").tabs();
+            $("#test-tabs").tabs();
+
+            var requirementsTree = [{"text":"All related test scenarios to Incident User","type":"feature","href":"0e4425e063091712c9790ec803cf0e6cff594236efa4e4508bba2d29a604486e.html","nodes":[],"selectable":false,"tags":["","\u003cspan class\u003d\u0027feature-count\u0027\u003e6 scenarios\u003c/span\u003e"]}];
+
+            $('#tree').treeview({
+                data: requirementsTree,
+                enableLinks: true,
+                showTags: true,
+                expandIcon: "glyphicon glyphicon-folder-close",
+                collapseIcon: "glyphicon glyphicon-folder-open",
+                emptyIcon: "glyphicon glyphicon-book"
+            });
+
         });
-        // Results table
-        $('#test-results-table').DataTable({
-            "order": [
-                [1, "asc"]
-            ],
-            "pageLength": 100,
-            "lengthMenu": [[50, 100, 200, -1], [50, 100, 200, "All"]]
-        });
-
-        // Results table
-        $('#req-results-table').DataTable({
-            "order": [
-                [1, "asc"]
-            ],
-            "pageLength": 100,
-            "lengthMenu": [[50, 100, 200, -1], [50, 100, 200, "All"]]
-        });
-
-        $('#examples-table').DataTable({
-            "order": [
-                [2, "asc"]
-            ],
-            "pageLength": 25
-        });
-        $("#requirements-tabs").tabs();
-        $("#test-tabs").tabs();
-    })
-    ;
     </script>
 
-    <script type="text/javascript">
+    <script>
         $(document).ready(function () {
-            $(".read-more-link").click(function () {
-                $(this).nextAll("div.read-more-text").toggle();
-                var isrc = $(this).find("img").attr('src');
-                if (isrc == 'images/plus.png') {
-                    $(this).find("img").attr("src", function () {
-                        return "images/minus.png";
-                    });
-                } else {
-                    $(this).find("img").attr("src", function () {
-                        return "images/plus.png";
-                    });
-                }
+            $(".scenario-docs p").html(function () {
+                var text = $(this).text().trim().split(" ");
+                var first = text.shift();
+                return (text.length > 0 ? "<strong>" + first + "</strong> " : first) + text.join(" ");
             });
         });
     </script>
@@ -166,7 +155,6 @@
         </div>
         <div class="rightbg"></div>
     </div>
-
     <div class="clr"></div>
 
     <!--/* starts second table*/-->
@@ -186,7 +174,7 @@
             <a href="#"><i class="fa fa-comments-o"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 15-06-2020 15:50</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 15-06-2020 22:00</span>
     <br style="clear:left"/>
 </div>
 
@@ -194,182 +182,581 @@
 
     <div id="beforetable"></div>
     <div id="results-dashboard">
-        <div class="middlb">
-            <div class="table">
-                <div>
-                    <h2><i class="fa fa-book"></i> Feature
-                        :  All Related Test Scenarios To Incident User</h2>
-
-                </div>
-
-
-                <div id="requirements-summary">
-                    <div id="coverage_pie_chart"
-                         style="margin-top:10px; margin-left:10px; width:250px; height:250px;"></div>
-                    <div id="coverage_summary">
+        <div class="table">
+                <div class=row">
+                    <div class="col-sm-12">
                         <div>
-                            <h4>Requirements Overview</h4>
-                            <table class="summary-table">
-                                <head>
-                                    <tr>
-                                        <th>Requirement Type</th>
-                                        <th>Total</th>
-                                        <th>Pass&nbsp;<i class="icon-check"></i></th>
-                                        <th>Fail&nbsp;<i class="icon-thumbs-down"></i></th>
-                                        <th>Pending&nbsp;<i class="icon-calendar"></i></th>
-                                        <th>Ignored&nbsp;<i class="icon-ban-circle"></i></th>
-                                    </tr>
-                                </head>
-                                <body>
+                            <div clas="table">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                    <span>
+                                            <h2><i class="fa fa-book"></i> Feature:  All Related Test Scenarios To Incident User</h2>
+                                        </span>
+                                </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="requirementNarrativeTitle">
+                                
+                            </div>
 
-                                <tr>
-                                    <td class="summary-leading-column"><a href="#test-results-table">Acceptance Criteria
-                                        (tests)</a></td>
-                                    <td>2</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td></td>
-                                </tr>
-                                </body>
-                            </table>
                         </div>
-
-
-
-
-
-<div>
-    <h4>Test Result Summary</h4>
-    <table class="summary-table">
-        <head>
-            <tr>
-                <th>Test Type</th>
-                <th>Total</th>
-                <th>Pass&nbsp;<i class="icon-check"/> </th>
-                <th>Fail&nbsp;<i class="icon-thumbs-down"/></th>
-                <th>Pending&nbsp;<i class="icon-calendar"/></th>
-                <th>Ignore/Skip&nbsp;<i class="icon-ban-circle"/></th>
-            </tr>
-        </head>
-        <body>
-        <tr>
-            <td class="summary-leading-column">Automated</td>
-            <td>2</td>
-            <td>1 (50%)</td>
-            <td>1 (50%)</td>
-            <td>0 (0%)</td>
-            <td>0 (0%)</td>
-        </tr>
-        <tr>
-            <td class="summary-leading-column">Manual</td>
-            <td>0</td>
-            <td>0 (0%)</td>
-            <td>0 (0%)</td>
-            <td>0 (0%)</td>
-            <td>0 (0%)</td>
-        </tr>
-        <tr>
-            <td class="summary-leading-column">Total</td>
-            <td>2</td>
-            <td>1 (50%)</td>
-            <td>1 (50%)</td>
-            <td>0 (0%)</td>
-            <td>0 (0%)</td>
-        </tr>
-        <tr>
-            <td class="summary-leading-column">Total Duration</td>
-                <td colspan="5">2 minutes 20 seconds</td>
-        </tr>
-        </body>
-    </table>
-</div>
                     </div>
-                </div>
-                <div class="clr"></div>
-                <div id="requirements-tabs">
+
+
+            <div class="row">
+                <div class="col-sm-12">
+
+                    <!-- Requirements result tabs -->
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a data-toggle="tab" href="#specs"><i class="fas fa-comments"></i> Specifications</a>
+                        </li>
+                        <li>
+                            <a data-toggle="tab" href="#results"><i class="fas fa-tachometer-alt"></i> Test Results</a>
+                        </li>
+                    </ul>
+
+                    <!-- Specifications and Results tabs -->
+                    <div class="card border">
+                        <div class="tab-content" id="pills-tabContent">
+                            <div id="specs" class="tab-pane fade in active">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+
+
+                                            <h3>Scenarios</h3>
+
+                                            <div id="toc">
+                                                <table class="table" id="toc-table">
+                                                        <tr>
+                                                            <td style="width:99%;" class="toc-title"><a href="#8bf85dc8c4042e2164ba92d18f95c423e21c66e487569601622caa71d7e0690f">Ensure that "Number" field is autopopulated as with prefix INC with 7 digits starting at 10,000</a>
+
+
+                                                            </td>
+                                                            <td style="width:1%;"><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                               
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:99%;" class="toc-title"><a href="#920702bb75a9e2728aea944384b5c859134e07d4e10a9385f6cbdc0c381cb251">Ensure that ITIL user role can create a new Incident</a>
+
+
+                                                            </td>
+                                                            <td style="width:1%;"><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                               
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:99%;" class="toc-title"><a href="#52f3fee2b383e4df32b0e087da9bc78fa7e3cdbc2b0891af245a6b24c7551c71">Ensure that Incidents can have Attachments added</a>
+
+
+                                                            </td>
+                                                            <td style="width:1%;"><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                               
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:99%;" class="toc-title"><a href="#d898f45fc609a9191447b79ef4a7f439bfd134744e875ec893336af725c4e654">Incident Analyst can see the email window pop</a>
+
+
+                                                            </td>
+                                                            <td style="width:1%;"><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                               
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:99%;" class="toc-title"><a href="#195248d07d6f072628c4726a04ca7f6e7c40b469d8f7c5ef9d3462d284eb6946">Ensure that Incident can be cancelled</a>
+
+
+                                                            </td>
+                                                            <td style="width:1%;"><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                               
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:99%;" class="toc-title"><a href="#e90889ee3b73fbe3f00828bc1c43ff40988cb310755892770c83ff8daaeaff7a">Ensure that ITIL user can search for the incident using search functionality</a>
+
+
+                                                            </td>
+                                                            <td style="width:1%;"><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                               
+                                                            </td>
+                                                        </tr>
+                                                </table>
+
+                                            </div>
+
+                                            <h3>Scenario details</h3>
+
+
+                                                <div class="scenario-docs card" id="8bf85dc8c4042e2164ba92d18f95c423e21c66e487569601622caa71d7e0690f">
+                                                    <div class="scenario-docs card-header success" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                Ensure that "Number" field is autopopulated as with prefix INC with 7 digits starting at 10,000
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="scenario-report-badges">
+                                                                <span class="scenario-report-badge" style="float:right;"><a href='3a1dcf07de8ffdd792f52fafccd9ae661130ac4dc19c76f34eeee6b565d88a1e.html' class='badge more-details'>Test Results</a></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p>Given I Login to ServiceNow Application with valid credentials</p>
+                                                            <p>When I Create New Incident and get Incident Number Format</p>
+                                                            <p>Then I verify Number field is autopopulated as with prefix INC with 7 digits starting at 10,000</p>
+                                                        <div class="examples">
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="scenario-docs card" id="920702bb75a9e2728aea944384b5c859134e07d4e10a9385f6cbdc0c381cb251">
+                                                    <div class="scenario-docs card-header success" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                Ensure that ITIL user role can create a new Incident
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="scenario-report-badges">
+                                                                <span class="scenario-report-badge" style="float:right;"><a href='d4ed41ae6187aded11a2216f89596f02e03676648cbcfbd9a9a86f5196a374b8.html' class='badge more-details'>Test Results</a></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p>Given I Login to ServiceNow Application with valid credentials</p>
+                                                            <p>When User cliks on New Button to create an incident</p>
+                                                            <p><p>And User selects value from More Information dropdown</p>
 <table>
-    <tr>
-        <td>
-            <div><h3>Acceptance Criteria</h3></div>
-            <div id="test_list_tests" class="table">
-                <div class="test-results">
-                    <table id="test-results-table">
-                        <thead>
-                        <tr>
-                            <th width="50" class="test-results-heading">&nbsp;</th>
-                            <th width="%" class="test-results-heading">Tests</th>
-                            <th width="70" class="test-results-heading">Steps</th>
-
-                            <th width="100" class="test-results-heading">Started</th>
-                            <th width="100" class="test-results-heading">Took<br>(secs)</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-
-                            <tr class="test-FAILURE">
-                                <td><span class="summary-icon"><i class='fa fa-times-circle failure-icon ' title='FAILURE'></i></span>
-                                    
-                                    <span style="display:none">FAILURE</span></td>
-                                <td class="FAILURE-text">
-                                    <div class="ellipsis">
-
-                                        <a href="9dff38ad5cd034ab9039aaf789e6936118b16dd1dc164990d391613362149daf.html" class="ellipsis"
-                                           title="Ensure that 'Number' field is autopopulated as with prefix INC with 7 digits starting at 10,000 Element should be enabled exception: ...">
-                                            Ensure that &quot;Number&quot; field is autopopulated as with prefix INC with 7 digits starting at 10,000&nbsp;(1  examples)
-                                                <span class="related-issue-title"></span>
-                                        </a>
-                                    </div>
-                                </td>
-
-                                <td class="FAILURE-text">7</td>
-
-
-                                <td class="FAILURE-text" data-sort="2020-06-15 15:50:09">15:50:09</td>
-
-                                <td class="FAILURE-text">66.54</td>
-                            </tr>
-
-                            <tr class="test-SUCCESS">
-                                <td><span class="summary-icon"><i class='fa fa-check-square-o success-icon ' title='SUCCESS'></i></span>
-                                    
-                                    <span style="display:none">SUCCESS</span></td>
-                                <td class="SUCCESS-text">
-                                    <div class="ellipsis">
-
-                                        <a href="77c1eecfcfb07848c6ed711c7559932a6e66222cd19c47e34d01cee4acb945e2.html" class="ellipsis"
-                                           title="Ensure that Incident can be cancelled ">
-                                            Ensure that Incident can be cancelled
-                                                <span class="related-issue-title"></span>
-                                        </a>
-                                    </div>
-                                </td>
-
-                                <td class="SUCCESS-text">7</td>
-
-
-                                <td class="SUCCESS-text" data-sort="2020-06-15 16:05:43">16:05:43</td>
-
-                                <td class="SUCCESS-text">73.99</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </td>
-    </tr>
+<thead>
+<tr><th>3 - Low</th></tr>
+</thead>
+<tbody></tbody>
 </table>
-</div>
+</p>
+                                                            <p><p>Then User will enter the description and click submit button</p>
+<table>
+<thead>
+<tr><th>Hardware Problem</th></tr>
+</thead>
+<tbody></tbody>
+</table>
+</p>
+                                                        <div class="examples">
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="scenario-docs card" id="52f3fee2b383e4df32b0e087da9bc78fa7e3cdbc2b0891af245a6b24c7551c71">
+                                                    <div class="scenario-docs card-header success" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                Ensure that Incidents can have Attachments added
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="scenario-report-badges">
+                                                                <span class="scenario-report-badge" style="float:right;"><a href='14063c8943e4450d212ef3695de4025ee5cf9b8c0f749c3ca071611cfbd403c8.html' class='badge more-details'>Test Results</a></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p>Given I Login to ServiceNow Application with valid credentials</p>
+                                                            <p>When I Navigate to Incidents and click on Attachment</p>
+                                                            <p>Then User should be able to add attachments</p>
+                                                        <div class="examples">
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="scenario-docs card" id="d898f45fc609a9191447b79ef4a7f439bfd134744e875ec893336af725c4e654">
+                                                    <div class="scenario-docs card-header success" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                Incident Analyst can see the email window pop
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="scenario-report-badges">
+                                                                <span class="scenario-report-badge" style="float:right;"><a href='9e3742cbefc5f6fa1e48395108ec4f9f1ef8d68d9e1a0273c23041c433759515.html' class='badge more-details'>Test Results</a></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p>Given I Login to ServiceNow Application with valid credentials</p>
+                                                            <p><p>Then User enters text in Filter Navigator</p>
+<table>
+<thead>
+<tr><th>Filter Navigator</th></tr>
+</thead>
+<tbody>
+<tr><td>Incidents</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p><p>Then User will click the incident</p>
+<table>
+<thead>
+<tr><th>Incident Number</th></tr>
+</thead>
+<tbody>
+<tr><td>INC0010008</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p>Then user click on More Options presented as three dots</p>
+                                                        <div class="examples">
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="scenario-docs card" id="195248d07d6f072628c4726a04ca7f6e7c40b469d8f7c5ef9d3462d284eb6946">
+                                                    <div class="scenario-docs card-header success" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                Ensure that Incident can be cancelled
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="scenario-report-badges">
+                                                                <span class="scenario-report-badge" style="float:right;"><a href='335b434d95125f4e8cad1b1838bf092bdc914bb6cfc547c6ffc103eda43f0bd7.html' class='badge more-details'>Test Results</a></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p>Given I Login to ServiceNow Application with valid credentials</p>
+                                                            <p>When I Click Incidents and open any incident</p>
+                                                            <p>Then I click on Delete</p>
+                                                        <div class="examples">
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="scenario-docs card" id="e90889ee3b73fbe3f00828bc1c43ff40988cb310755892770c83ff8daaeaff7a">
+                                                    <div class="scenario-docs card-header success" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                Ensure that ITIL user can search for the incident using search functionality
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="scenario-report-badges">
+                                                                <span class="scenario-report-badge" style="float:right;"><a href='0a74fe1f5dcec2ad17ddc0746edc010f0851fc09843342a3f06406e9e33f1806.html' class='badge more-details'>Test Results</a></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p>Given I Login to ServiceNow Application with valid credentials</p>
+                                                            <p>Then User Clicks on Incidents tab on dashboard</p>
+                                                            <p><p>Then User Search for the incident using search functionality</p>
+<table>
+<thead>
+<tr><th>Incident Number</th></tr>
+</thead>
+<tbody>
+<tr><td>INC0010002</td></tr>
+</tbody>
+</table>
+</p>
+                                                        <div class="examples">
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="results" class="tab-pane fade">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+
+                                            <div style="width:300px;" class="chart-container automated-and-manual-results">
+                                                <div class="ct-chart ct-square"></div>
+                                            </div>
+                                            <script>
+
+                                                var labels = ['100%', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
+                                                // Our series array that contains series objects or in this case series data arrays
+
+                                                var series = [{meta: 'Passing tests (automated)', value: 6}, {meta: 'Passing tests (manual)', value: 0}, {meta: 'Pending tests (automated)', value: 0}, {meta: 'Pending tests (manual)', value: 0}, {meta: 'Ignored tests (automated)', value: 0}, {meta: 'Ignored tests (manual)', value: 0}, {meta: 'Skipped tests (automated)', value: 0}, {meta: 'Skipped tests (manual)', value: 0}, {meta: 'Failing tests (automated)', value: 0}, {meta: 'Failing tests (manual)', value: 0}, {meta: 'Broken tests (automated)', value: 0}, {meta: 'Broken tests (manual)', value: 0}, {meta: 'Compromised tests (automated)', value: 0}, {meta: 'Compromised tests (manual)', value: 0}];
+
+                                                // As options we currently only set a static size of 300x200 px. We can also omit this and use aspect ratio containers
+                                                // as you saw in the previous example
+                                                var options = {
+                                                    width: 350,
+                                                    height: 300
+                                                };
+
+                                                $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                                                    new Chartist.Pie('.ct-chart', {
+                                                        series: series,
+                                                        labels: labels,
+                                                    }, {
+                                                        donut: true,
+                                                        donutWidth: 60,
+                                                        donutSolid: true,
+                                                        startAngle: 270,
+                                                        showLabel: true
+                                                    }, options);
+                                                });
+
+                                            </script>
+                                        </div>
+                                        <div class="col-sm-8">
+
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col">Scenario Results (including rows of test data)</th>
+                                                <th scope="col" colspan="2" class="automated-stats">
+                                                    Automated
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                                    <td class="aggregate-result-count">
+                                                                        <a href="8217ef6cdaf14268f5ce34ffe7d7cfb4aed676d577e51ea889759622d30dd757.html"><i
+                                                                                class='fa fa-check-circle-o success-icon'></i>&nbsp;Passing</a>
+                                                                    </td>
+                                                <td class="automated-stats">6</td>
+                                                <td class="automated-stats">100%</td>
+                                            </tr>
+                                            <tr>
+                                                                    <td class="aggregate-result-count"><i
+                                                                            class='fa fa-stop-circle-o pending-icon'></i>&nbsp;Pending
+                                                                    </td>
+                                                <td class="automated-stats">0</td>
+                                                <td class="automated-stats"> </td>
+                                            </tr>
+                                            <tr>
+                                                                <td class="aggregate-result-count"><i
+                                                                        class='fa fa-ban ignored-icon'></i>&nbsp;Ignored
+                                                                </td>
+                                                <td class="automated-stats">0</td>
+                                                <td class="automated-stats"> </td>
+                                            </tr>
+                                            <tr>
+                                                                <td class="aggregate-result-count"><i
+                                                                        class='fa fa-fast-forward skip-icon'></i>&nbsp;Skipped
+                                                                </td>
+                                                <td class="automated-stats">0</td>
+                                                <td class="automated-stats"> </td>
+                                            </tr>
+                                            <tr>
+                                                                    <td colspan="3"><a href="700be351a1a086b429ae5439b8d1adb01848cce8090cc88e4bcb5f1ae1d58d45.html"><i
+                                                                            class='fa fa-times failure-icon'></i>&nbsp;<em>Unsuccessful</em></a>
+                                                                    </td>
+                                            </tr>
+
+                                            <tr>
+                                                                <td class="aggregate-result-count indented-error-category">
+                                                                    <i
+                                                                            class='fa fa-times-circle failure-icon'></i>&nbsp;Failed
+                                                                </td>
+                                                <td class="automated-stats">0</td>
+                                                <td class="automated-stats"> </td>
+                                            <tr>
+                                                                <td class="aggregate-result-count indented-error-category">
+                                                                    <i
+                                                                            class='fa fa-exclamation-triangle error-icon'></i>&nbsp;Broken
+                                                                </td>
+                                                <td class="automated-stats">0</td>
+                                                <td class="automated-stats"> </td>
+                                            <tr>
+                                                                <td class="aggregate-result-count indented-error-category">
+                                                                    <i
+                                                                            class='fa fa-chain-broken compromised-icon'></i>&nbsp;Compromised
+                                                                </td>
+                                                <td class="automated-stats">0</td>
+                                                <td class="automated-stats"> </td>
+                                            </tr>
+                                            <tr class="summary-stats">
+                                                <td class="aggregate-result-count">Total</td>
+                                                <td class="automated-stats">6</td>
+                                                <td class="automated-stats"></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <table class="table">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Execution Time</th>
+                                                        <th>Clock Time</th>
+                                                        <th>Fastest Test</th>
+                                                        <th>Slowest Test</th>
+                                                        <th>Average Execution Time</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td> 18m 15s</td>
+                                                        <td> 6m 8s</td>
+                                                        <td>56s</td>
+                                                        <td> 12m 7s</td>
+                                                        <td> 3m 2s</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <h3><i class="fas fa-cogs"></i> Automated Tests</h3>
+
+                                            <table class="scenario-result-table table" id="scenario-results">
+                                                <thead>
+                                                <tr>
+                                                    <th class="test-name-column">Scenario</th>
+                                                    <th>Steps</th>
+                                                    <th>Start Time</th>
+                                                    <th>Duration</th>
+                                                    <th>Result</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr class="scenario-result SUCCESS">
+                                                    <td>
+                                                            <a href="3a1dcf07de8ffdd792f52fafccd9ae661130ac4dc19c76f34eeee6b565d88a1e.html">Ensure that "Number" field is autopopulated as with prefix INC with 7 digits starting at 10,000</a>
+                                                    </td>
+                                                    <td>3</td>
+                                                    <td>22:00:57</td>
+                                                    <td>01:34</td>
+                                                    <td>
+                                                            <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
+                                                                style="display:none">SUCCESS</span>
+                                                    </td>
+                                                </tr>
+                                                <tr class="scenario-result SUCCESS">
+                                                    <td>
+                                                            <a href="d4ed41ae6187aded11a2216f89596f02e03676648cbcfbd9a9a86f5196a374b8.html">Ensure that ITIL user role can create a new Incident</a>
+                                                    </td>
+                                                    <td>4</td>
+                                                    <td>22:02:31</td>
+                                                    <td>01:21</td>
+                                                    <td>
+                                                            <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
+                                                                style="display:none">SUCCESS</span>
+                                                    </td>
+                                                </tr>
+                                                <tr class="scenario-result SUCCESS">
+                                                    <td>
+                                                            <a href="14063c8943e4450d212ef3695de4025ee5cf9b8c0f749c3ca071611cfbd403c8.html">Ensure that Incidents can have Attachments added</a>
+                                                    </td>
+                                                    <td>3</td>
+                                                    <td>22:03:53</td>
+                                                    <td>01:07</td>
+                                                    <td>
+                                                            <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
+                                                                style="display:none">SUCCESS</span>
+                                                    </td>
+                                                </tr>
+                                                <tr class="scenario-result SUCCESS">
+                                                    <td>
+                                                            <a href="9e3742cbefc5f6fa1e48395108ec4f9f1ef8d68d9e1a0273c23041c433759515.html">Incident Analyst can see the email window pop</a>
+                                                    </td>
+                                                    <td>4</td>
+                                                    <td>22:05:00</td>
+                                                    <td>01:07</td>
+                                                    <td>
+                                                            <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
+                                                                style="display:none">SUCCESS</span>
+                                                    </td>
+                                                </tr>
+                                                <tr class="scenario-result SUCCESS">
+                                                    <td>
+                                                            <a href="335b434d95125f4e8cad1b1838bf092bdc914bb6cfc547c6ffc103eda43f0bd7.html">Ensure that Incident can be cancelled</a>
+                                                    </td>
+                                                    <td>3</td>
+                                                    <td>22:06:08</td>
+                                                    <td>00:56</td>
+                                                    <td>
+                                                            <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
+                                                                style="display:none">SUCCESS</span>
+                                                    </td>
+                                                </tr>
+                                                <tr class="scenario-result SUCCESS">
+                                                    <td>
+                                                            <a href="0a74fe1f5dcec2ad17ddc0746edc010f0851fc09843342a3f06406e9e33f1806.html">Ensure that ITIL user can search for the incident using search functionality</a>
+                                                    </td>
+                                                    <td>3</td>
+                                                    <td>22:07:04</td>
+                                                    <td>12:07</td>
+                                                    <td>
+                                                            <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
+                                                                style="display:none">SUCCESS</span>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <h3><i class="fas fa-edit"></i> Manual Tests</h3>
+
+                                                No manual tests were recorded
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-</div>
-</div>
-<div id="bottomfooter">
-    <span class="version">Serenity BDD version 1.9.9</span>
-</div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <span class="version">Serenity BDD version 2.0.30</span>
+                    </div>
+                </div>
+            </div>
 </body>
 </html>
