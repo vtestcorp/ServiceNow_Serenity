@@ -27,11 +27,7 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.PageObject;
 
-<<<<<<< HEAD
-=======
-@DefaultUrl("https://dev95151.service-now.com/")
 
->>>>>>> 31c9078b189abb20bddfe5e1cf37c3e607223a4a
 public class HomePage extends PageObject {
 	private String new_Incidentnum;
 
