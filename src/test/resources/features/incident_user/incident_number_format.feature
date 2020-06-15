@@ -89,7 +89,7 @@ Feature: All related test scenarios to Incident User
       | Incidents        |
     Then User will click the incident
       | Incident Number |
-      | INC0010111      |
+      | INC0010008      |
     Then user click on More Options presented as three dots
 
     Examples: 

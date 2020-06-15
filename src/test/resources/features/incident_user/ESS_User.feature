@@ -14,9 +14,7 @@ Feature: All related test scenarios to ESS User
       | Incident Number |
       | INC0010087      |
 
-    Examples: 
-      | UserID      | Password |
-      |             |          |
+   
 
       
     

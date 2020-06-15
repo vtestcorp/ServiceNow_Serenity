@@ -24,14 +24,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.SN.util.Utility;
 
 import net.serenitybdd.core.pages.WebElementFacade;
-import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.PageObject;
 
-@DefaultUrl("add current instance URL")
-
 public class HomePage extends PageObject {
-	public String new_Incidentnum;
+	private String new_Incidentnum;
 
 	@FindBy(xpath = "//input[@id=\"user_name\"]")
 	WebElementFacade username;
@@ -93,8 +90,11 @@ public class HomePage extends PageObject {
 	@FindBy(xpath = "//table[@id='incident_table']")
 	WebElementFacade systemAdmin_Incidents_Table;
 
-	@FindBy(xpath = "//a[contains(text(),'INC0010111')]")
-	WebElementFacade incidentNum;
+	// @FindBy(xpath = "//a[text() ='" + value + "']")
+	// WebElementFacade incidentNum;
+
+	// WebElement incidentNum = getDriver().findElement(By.xpath("//a[text() ='"
+	// + new_Incidentnum + "']"));
 
 	@FindBy(xpath = "//button[@id='header_add_attachment']//following::button[3]")
 	WebElementFacade toggleMoreOptions;
@@ -388,38 +388,11 @@ public class HomePage extends PageObject {
 	@Step
 	public void clickIncidentFromTable(String value) throws InterruptedException {
 		getDriver().switchTo().frame(0);
-		// List<WebElement> rows_table =
-		// systemAdmin_Incidents_Table.findElements(By.tagName("tr"));
-		//
-		// int rows_count = rows_table.size();
-		//
-		// for (int row = 0; row < rows_count; row++) {
-		//
-		// List<WebElement> Columns_row =
-		// rows_table.get(row).findElements(By.tagName("td"));
-		//
-		// int columns_count = Columns_row.size();
-		//
-		// for (int column = 0; column < columns_count; column++) {
-		//
-		// String celtext = Columns_row.get(column).getText();
-		// System.out.println("text is " + celtext);
-		// if (celtext.equals(value)) {
-		//
-		// System.out.println("text is " + celtext);
-		// // getDriver().findElement(By.xpath("//a[contains(text(),'"
-		// // + value + "')]")).click();
-		//
-		// getDriver().findElement(By.linkText(value)).click();
-		//
-		// Thread.sleep(3000L);
-		//
-		// } else {
-		// assertEquals(celtext, value);
-		// }
-		// }
-		//
-		// }
+		System.out.println("val is " + value);
+
+		// new_Incidentnum = value;
+		WebElement incidentNum = getDriver().findElement(By.xpath("//a[text() ='" + value + "']"));
+
 		incidentNum.click();
 
 	}

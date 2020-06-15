@@ -145,6 +145,7 @@ public class VerifyIncidentNumberScenarioSteps {
 	public void user_will_click_the_incident(DataTable number) {
 		try {
 			List<List<String>> inc_Number = number.raw();
+			System.out.println(inc_Number.get(1).get(0));
 			homePage.clickIncidentFromTable(inc_Number.get(1).get(0));
 		} catch (Exception e) {
 

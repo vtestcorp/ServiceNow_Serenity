@@ -14,7 +14,7 @@ public class IncidentSteps extends ScenarioSteps {
 
 	@Step
 	public void opens_home_page() {
-		homePage.open();
+		 homePage.open();
 
 	}
 

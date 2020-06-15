@@ -21,7 +21,7 @@ public class Utils {
 	 */
 	public static void readCredentials() {
 		try {
-			reader = new FileReader("serenity.properties");
+			reader = new FileReader("C:/Service Now_Serenity/serenity.properties");
 			p = new Properties();
 			p.load(reader);
 
