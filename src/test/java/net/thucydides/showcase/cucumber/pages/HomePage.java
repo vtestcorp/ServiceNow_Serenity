@@ -27,7 +27,6 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.PageObject;
 
-
 public class HomePage extends PageObject {
 	private String new_Incidentnum;
 
@@ -101,8 +100,6 @@ public class HomePage extends PageObject {
 	WebElementFacade toggleMoreOptions;
 	@FindBy(xpath = "//span[@class='list_view']")
 	WebElementFacade listView;
-	
-	
 
 	Select select;
 	public File file;
@@ -118,14 +115,16 @@ public class HomePage extends PageObject {
 		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 		clipboard.setContents(strSelection, null);
 		Robot robot = new Robot();
-		Thread.sleep(3000);
+
+		getDriver().manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_ENTER);
 		robot.keyPress(KeyEvent.VK_CONTROL);
 		robot.keyPress(KeyEvent.VK_V);
 		robot.keyRelease(KeyEvent.VK_CONTROL);
 		robot.keyRelease(KeyEvent.VK_V);
-		Thread.sleep(3000);
+
+		getDriver().manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_ENTER);
 
@@ -139,7 +138,8 @@ public class HomePage extends PageObject {
 		username.sendKeys(Username);
 		password.sendKeys(Password);
 		login_button.click();
-		Thread.sleep(11000);
+
+		getDriver().manage().timeouts().implicitlyWait(11000, TimeUnit.MILLISECONDS);
 	}
 
 	public void switchtoframe(WebElementFacade ele) {
@@ -166,14 +166,16 @@ public class HomePage extends PageObject {
 		new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(listView));
 		listView.click();
 		new_Button.click();
-//		load_page();
-//		getDriver().switchTo().defaultContent();
-//		new WebDriverWait(getDriver(), 40).until(ExpectedConditions.visibilityOf(Incidents));
-//		getDriver().switchTo().frame(0);
-//		create_incident.click();
-//		load_page();
-//		new WebDriverWait(getDriver(), 40).until(ExpectedConditions.visibilityOf(select_urgency));
-//		Utility.selectByText(select_urgency, "2 - Medium");
+		// load_page();
+		// getDriver().switchTo().defaultContent();
+		// new WebDriverWait(getDriver(),
+		// 40).until(ExpectedConditions.visibilityOf(Incidents));
+		// getDriver().switchTo().frame(0);
+		// create_incident.click();
+		// load_page();
+		// new WebDriverWait(getDriver(),
+		// 40).until(ExpectedConditions.visibilityOf(select_urgency));
+		// Utility.selectByText(select_urgency, "2 - Medium");
 		more_information.sendKeys("Test Parent Incident");
 		waitforelement(submit_button);
 		scrollToElement_N_click(submit_button);
@@ -260,7 +262,8 @@ public class HomePage extends PageObject {
 
 	public void removeattchments() throws InterruptedException {
 		getDriver().switchTo().frame(0);
-		Thread.sleep(6000);
+
+		getDriver().manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
 		new WebDriverWait(getDriver(), 40).until(ExpectedConditions.visibilityOf(select_first_attachment));
 		select_first_attachment.click();
 		remove_button.click();
@@ -294,14 +297,18 @@ public class HomePage extends PageObject {
 			new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(search_Button));
 
 			search_Button.sendKeys(incidentNumber);
-			Thread.sleep(3000L);
+
+			getDriver().manage().timeouts().implicitlyWait(3000L, TimeUnit.SECONDS);
 			search_Button.sendKeys(Keys.ENTER);
-			Thread.sleep(3000L);
+
+			getDriver().manage().timeouts().implicitlyWait(3000L, TimeUnit.SECONDS);
 
 			search_Button.sendKeys(incidentNumber);
-			Thread.sleep(3000L);
+
+			getDriver().manage().timeouts().implicitlyWait(3000L, TimeUnit.SECONDS);
 			search_Button.sendKeys(Keys.ENTER);
-			Thread.sleep(3000L);
+			getDriver().manage().timeouts().implicitlyWait(3000L, TimeUnit.SECONDS);
+
 			// Robot r = new Robot();
 			// r.keyPress(KeyEvent.VK_ENTER);
 			// r.keyRelease(KeyEvent.VK_ENTER);
@@ -429,8 +436,9 @@ public class HomePage extends PageObject {
 			//// Thread.sleep(3000);
 			// robot.keyPress(KeyEvent.VK_ENTER);
 			// robot.keyRelease(KeyEvent.VK_ENTER);
-			Thread.sleep(5000L);
-			Thread.sleep(5000L);
+
+			getDriver().manage().timeouts().implicitlyWait(10000, TimeUnit.SECONDS);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -447,7 +455,8 @@ public class HomePage extends PageObject {
 		try {
 			// getDriver().switchTo().frame("gsft_main");
 			toggleMoreOptions.click();
-			Thread.sleep(5000L);
+			
+			getDriver().manage().timeouts().implicitlyWait(5000, TimeUnit.SECONDS);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -14,10 +14,5 @@ Feature: All related test scenarios to ESS User
       | Incident Number |
       | INC0010087      |
 
-   
-<<<<<<< HEAD
 
-=======
->>>>>>> 31c9078b189abb20bddfe5e1cf37c3e607223a4a
-      
     
