@@ -5,16 +5,10 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.showcase.cucumber.pages.HomePage;
 import net.thucydides.showcase.cucumber.pages.Utils;
 import net.thucydides.showcase.cucumber.steps.serenity.IncidentSteps;
-import static org.assertj.core.api.Assertions.assertThat;
-import java.util.Map;
-
-import com.ibm.icu.impl.Utility;
-
 import java.awt.AWTException;
 import java.util.List;
 
@@ -80,9 +74,9 @@ public class VerifyIncidentNumberScenarioSteps {
 		incident.verify_remove_attachment();
 	}
 
-	@Then("^User Clicks on Incidents tab on dashboard$")
+	@Then("^User Clicks on Incidents tab on dashboard On Left$")
 	public void user_Clicks_on_Incidents_tab_on_dashboard() {
-		homePage.click_IncidenTab();
+		homePage.click_IncidenTabOnLeft();
 	}
 
 	@Then("^User Search for the incident using search functionality$")

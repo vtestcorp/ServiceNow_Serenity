@@ -4,17 +4,16 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import net.thucydides.showcase.cucumber.pages.HomePage;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import java.awt.AWTException;
 
+@SuppressWarnings("serial")
 public class IncidentSteps extends ScenarioSteps {
 
 	HomePage homePage;
 
 	@Step
 	public void opens_home_page() {
-		 homePage.open();
+		homePage.open();
 
 	}
 
