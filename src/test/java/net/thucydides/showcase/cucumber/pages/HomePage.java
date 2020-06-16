@@ -21,10 +21,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.SN.util.Utility;
+
 import net.serenitybdd.core.pages.WebElementFacade;
+import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.PageObject;
-import com.SN.util.Utility;
+
 
 public class HomePage extends PageObject {
 	private String new_Incidentnum;
@@ -40,8 +43,10 @@ public class HomePage extends PageObject {
 
 	@FindBy(xpath = "//button[text()=\"Login\"]")
 	WebElementFacade login_button;
+
 	@FindBy(xpath = "//div[@data-sn-macro-sys-id=\"345c23800a0a0aa7007d46e66544d541\"]//a[contains(text(),'Create Incident')]")
 	WebElementFacade create_incident;
+
 	@FindBy(xpath = "//button[@id='submit_button']")
 	WebElementFacade submit_button;
 	@FindBy(xpath = "//div[@class='navbar-header']")
@@ -53,7 +58,7 @@ public class HomePage extends PageObject {
 	WebElementFacade more_information;
 	@FindBy(xpath = "//a[@class='navbar-brand']")
 	WebElementFacade servicenow_icon;
-	@FindBy(xpath = "//a[@id='087800c1c0a80164004e32c8a64a97c9']")
+	@FindBy(xpath = "//a[@id='087800c1c0a80164004e32c8a64a97c9']//div[@class='sn-widget-list-title'][contains(text(),'Incidents')]")
 	WebElementFacade Incidents;
 	@FindBy(xpath = "//button[@id='sysverb_new']")
 	WebElementFacade new_Button;
@@ -105,6 +110,21 @@ public class HomePage extends PageObject {
 	@FindBy(xpath = "//a[@class='sc_bottom_link']")
 	WebElementFacade view_all;
 
+	@FindBy(xpath = "//div[text()='Incidents']")
+	WebElementFacade leftIncident;
+
+	@FindBy(xpath = "//button[@id='resolve_incident']")
+	WebElementFacade resolve_Button;
+
+	@FindBy(xpath = "//select[@id='incident.state']")
+	WebElementFacade resolve_Status;
+
+	@FindBy(xpath = "//button[@id='user_info_dropdown']")
+	WebElementFacade systemAdministrator;
+
+	@FindBy(linkText = "Logout")
+	WebElementFacade logoutButton;
+	//
 	Select select;
 	public File file;
 	List<WebElement> listOfElements;
@@ -142,7 +162,6 @@ public class HomePage extends PageObject {
 		username.sendKeys(Username);
 		password.sendKeys(Password);
 		login_button.click();
-
 		getDriver().manage().timeouts().implicitlyWait(11000, TimeUnit.MILLISECONDS);
 	}
 
@@ -318,8 +337,10 @@ public class HomePage extends PageObject {
 
 			load_page();
 			getDriver().switchTo().defaultContent();
-			new WebDriverWait(getDriver(), 40).until(ExpectedConditions.visibilityOf(Incidents));
-			Incidents.click();
+			new WebDriverWait(getDriver(), 40).until(ExpectedConditions.visibilityOf(leftIncident));
+			System.out.println("incident on left");
+			leftIncident.click();
+			getDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 			// getDriver().switchTo().frame(0);
 			// new WebDriverWait(getDriver(),
 			// 40).until(ExpectedConditions.visibilityOf(view_all));
@@ -328,8 +349,7 @@ public class HomePage extends PageObject {
 			// 40).until(ExpectedConditions.visibilityOf(createIncident_expand));
 			// createIncident_expand.click();
 			// load_page();
-			// new WebDriverWait(getDriver(),
-			// 40).until(ExpectedConditions.visibilityOf(select_urgency));
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -446,6 +466,8 @@ public class HomePage extends PageObject {
 
 		incidentNum.click();
 
+		getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
 	}
 
 	/**
@@ -537,4 +559,90 @@ public class HomePage extends PageObject {
 		waitforelement(get_IncidentNum);
 		new_Incidentnum = get_IncidentNum.getText();
 	}
+
+	public void clickResolvebutton() {
+		try {
+			new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(resolve_Button));
+			resolve_Button.click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void verify() {
+		try {
+			new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(resolve_Status));
+			// System.out.println("Status is " + resolve_Button.getText());
+			// assertEquals("Resolve", resolve_Button.getText());
+
+			Select select = new Select(resolve_Status);
+			System.out.println("Status is " + select.getFirstSelectedOption().getText());
+
+			assertEquals("Resolved", select.getFirstSelectedOption().getText());
+
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void switchToDefaultFrame() {
+		getDriver().switchTo().defaultContent();
+	}
+
+	@Step
+	public void verify_IncidenTabOnLeft() {
+
+		try {
+
+			load_page();
+			getDriver().switchTo().defaultContent();
+			new WebDriverWait(getDriver(), 40).until(ExpectedConditions.visibilityOf(leftIncident));
+			System.out.println("incident on left");
+			if (leftIncident.isEnabled() || leftIncident.isDisplayed()) {
+
+				System.out.println("Incident tab verified");
+
+			}
+			getDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	@Step
+	public void logoutFunctionality(String name) {
+
+		try {
+
+			load_page();
+			getDriver().switchTo().defaultContent();
+
+			WebElement user = getDriver().findElement(By.xpath("//span[text()='" + name + "']"));
+			new WebDriverWait(getDriver(), 40).until(ExpectedConditions.elementToBeClickable(user));
+			System.out.println("sys admin " + user.getText());
+			user.click();
+			getDriver().manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			// new WebDriverWait(getDriver(),
+			// 40).until(ExpectedConditions.elementToBeClickable(logoutButton));
+			// System.out.println("log button " + logoutButton.getText());
+			// logoutButton.click();
+			// getDriver().manage().timeouts().implicitlyWait(40,
+			// TimeUnit.SECONDS);
+
+			Robot r = new Robot();
+			r.keyPress(KeyEvent.VK_DOWN);
+			r.keyPress(KeyEvent.VK_DOWN);
+			r.keyPress(KeyEvent.VK_ENTER);
+			r.keyRelease(KeyEvent.VK_ENTER);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
 }

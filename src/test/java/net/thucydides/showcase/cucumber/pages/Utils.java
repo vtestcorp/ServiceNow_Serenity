@@ -43,5 +43,32 @@ public class Utils {
 		readCredentials();
 		return adminPassword = p.getProperty("adminPassword");
 	}
+	
+	// incident user
+	public static String incident_Username() {
+		readCredentials();
+
+		adminUsername = p.getProperty("incidentUser");
+		return adminUsername;
+	}
+
+	public static String incident_Password() {
+		readCredentials();
+		return adminPassword = p.getProperty("incidentPassword");
+	}
+
+	//ESS User
+	public static String ESS_Username() {
+		readCredentials();
+
+		adminUsername = p.getProperty("ESSUser");
+		return adminUsername;
+	}
+
+	public static String ess_Password() {
+		readCredentials();
+		return adminPassword = p.getProperty("essPassword");
+	}
+
 
 }

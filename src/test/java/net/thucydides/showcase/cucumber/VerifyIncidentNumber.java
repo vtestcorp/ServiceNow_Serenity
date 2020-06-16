@@ -6,7 +6,7 @@ import cucumber.api.CucumberOptions;
 import net.serenitybdd.cucumber.CucumberWithSerenity;
 
 @RunWith(CucumberWithSerenity.class)
-@CucumberOptions(features = "src/test/resources/features/incident_user/incident_number_format.feature")
+@CucumberOptions(features = "src/test/resources/features/incident_user/incident_number_format.Feature")
 
 public class VerifyIncidentNumber {
 

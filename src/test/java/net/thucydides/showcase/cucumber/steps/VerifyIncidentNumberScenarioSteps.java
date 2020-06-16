@@ -20,10 +20,33 @@ public class VerifyIncidentNumberScenarioSteps {
 	HomePage homePage;
 
 	@Given("I Login to ServiceNow Application with valid credentials")
-	public void iLoginToServiceNowApplicationWithValidCredentials()
-			throws InterruptedException {
+	public void iLoginToServiceNowApplicationWithValidCredentials() throws InterruptedException {
 		incident.opens_home_page();
 		incident.account_login(Utils.admin_Username(), Utils.admin_Password());
+		System.out.println("login complete");
+	}
+
+	@Given("^Incident User Login to ServiceNow Application with valid credentials$")
+	public void incident_User_Login_to_ServiceNow_Application_with_valid_credentials() {
+
+		try {
+			incident.opens_home_page();
+			incident.account_login(Utils.incident_Username(), Utils.incident_Password());
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println("Incident login complete");
+	}
+
+	@Then("^ESS User Login to ServiceNow Application with valid credentials$")
+	public void ess_User_Login_to_ServiceNow_Application_with_valid_credentials() {
+		try {
+			incident.opens_home_page();
+			incident.account_login(Utils.ESS_Username(), Utils.ess_Password());
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println("ESS login complete");
 	}
 
 	@When("I Create New Incident and get Incident Number Format")
@@ -76,7 +99,7 @@ public class VerifyIncidentNumberScenarioSteps {
 
 	@Then("^User Clicks on Incidents tab on dashboard On Left$")
 	public void user_Clicks_on_Incidents_tab_on_dashboard() {
-		homePage.click_IncidenTabOnLeft();
+		homePage.click_IncidenTab();
 	}
 
 	@Then("^User Search for the incident using search functionality$")
@@ -158,6 +181,73 @@ public class VerifyIncidentNumberScenarioSteps {
 			e.printStackTrace();
 		}
 
+	}
+
+	@Then("^User Clicks on Incidents tab on dashboard$")
+	public void user_Clicks_on_Incidents_tab_on_dashboardPanel() {
+
+		try {
+
+			homePage.click_IncidenTabOnLeft();
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+
+	}
+
+	@Then("^USer Clicks on Resolve button in an incident$")
+	public void user_Clicks_on_Resolve_button_in_an_incident() {
+		try {
+
+			homePage.clickResolvebutton();
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+	}
+
+	@Then("^Switch to default frame$")
+	public void switch_to_default_frame() {
+		try {
+			homePage.switchToDefaultFrame();
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+	}
+
+	@Then("^User verifies the Incident status as Resolved$")
+	public void user_verifies_the_Incident_status_as_Resolved() {
+		try {
+			homePage.verify();
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+	}
+
+	@Then("^User verifies Incidents on Dashboard$")
+	public void user_verifies_Incidents_on_Dashboard() {
+		try {
+
+			homePage.verify_IncidenTabOnLeft();
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+
+	}
+
+	@Then("^\"([^\"]*)\" Logout of the Application$")
+	public void user_Logout_of_the_Application(String userName) {
+		try {
+
+			homePage.logoutFunctionality(userName);
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
 	}
 
 }
