@@ -37,11 +37,10 @@ Feature: All related test scenarios to Incident User
       | Incident Number |
       | INC0010087      |
 
+   
   Scenario: Incident Analyst can see the email window pop
     Given I Login to ServiceNow Application with valid credentials
-    Then User enters text in Filter Navigator
-      | Filter Navigator |
-      | Incidents        |
+    Then User Clicks on Incidents tab on dashboard
     Then User will click the incident
       | Incident Number |
       | INC0010111      |
