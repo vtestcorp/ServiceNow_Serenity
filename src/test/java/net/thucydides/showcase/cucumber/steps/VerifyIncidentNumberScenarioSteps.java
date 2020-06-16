@@ -79,6 +79,19 @@ public class VerifyIncidentNumberScenarioSteps {
 		homePage.click_IncidenTab();
 	}
 
+        @Then("^User Clicks on Incidents tab on dashboard$")
+	public void user_Clicks_on_Incidents_tab_on_dashboardPanel() {
+
+		try {
+
+			homePage.click_IncidenTabOnLeft();
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+
+	}
+
 	@Then("^User Search for the incident using search functionality$")
 	public void user_Search_for_the_incident_using_search_functionality(DataTable incidentNumber) {
 
