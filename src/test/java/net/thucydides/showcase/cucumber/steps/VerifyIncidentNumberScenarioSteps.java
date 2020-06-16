@@ -76,7 +76,21 @@ public class VerifyIncidentNumberScenarioSteps {
 
 	@Then("^User Clicks on Incidents tab on dashboard On Left$")
 	public void user_Clicks_on_Incidents_tab_on_dashboard() {
-		homePage.click_IncidenTab();
+		homePage.click_IncidenTab();}
+
+
+        @Then("^User Clicks on Incidents tab on dashboard$")
+	public void user_Clicks_on_Incidents_tab_on_dashboardPanel() {
+
+		try {
+
+			homePage.click_IncidenTabOnLeft();
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+
+
 	}
 
 	@Then("^User Search for the incident using search functionality$")

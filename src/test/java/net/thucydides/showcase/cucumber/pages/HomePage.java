@@ -125,7 +125,8 @@ public class HomePage extends PageObject {
 	WebElementFacade createIncident_expand;
 	@FindBy(xpath = "//a[@class='sc_bottom_link']")
 	WebElementFacade view_all;
-
+	@FindBy(xpath = "//div[text()='Incidents']")
+	WebElementFacade leftIncident;
 	Select select;
 	public File file;
 	List<WebElement> listOfElements;
@@ -368,15 +369,17 @@ public class HomePage extends PageObject {
 	public void click_IncidenTabOnLeft() {
 
 		try {
-			// getDriver().switchTo().defaultContent();
+				// getDriver().switchTo().defaultContent();
 			// new WebDriverWait(getDriver(),
 			// 40).until(ExpectedConditions.visibilityOf(incidentTab));
 			// incidentTab.click();
 
 			load_page();
 			getDriver().switchTo().defaultContent();
-			new WebDriverWait(getDriver(), 40).until(ExpectedConditions.visibilityOf(Incidents));
-			Incidents.click();
+			new WebDriverWait(getDriver(), 40).until(ExpectedConditions.visibilityOf(leftIncident));
+			System.out.println("incident on left");
+			leftIncident.click();
+			getDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 			// getDriver().switchTo().frame(0);
 			// new WebDriverWait(getDriver(),
 			// 40).until(ExpectedConditions.visibilityOf(view_all));
@@ -385,8 +388,6 @@ public class HomePage extends PageObject {
 			// 40).until(ExpectedConditions.visibilityOf(createIncident_expand));
 			// createIncident_expand.click();
 			// load_page();
-			// new WebDriverWait(getDriver(),
-			// 40).until(ExpectedConditions.visibilityOf(select_urgency));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
