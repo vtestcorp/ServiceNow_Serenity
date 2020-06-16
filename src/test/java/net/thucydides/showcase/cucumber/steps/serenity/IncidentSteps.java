@@ -76,4 +76,36 @@ public class IncidentSteps extends ScenarioSteps {
 	public void delete_button() {
 		homePage.deletebutton();
 	}
+	
+	@Step
+	public void change_status(String status) throws InterruptedException {
+		homePage.createincidentgetnumber();
+		homePage.changestatus(status);
+	}
+	
+	@Step
+	public void change_status_repeat(String status) throws InterruptedException {
+		homePage.changestatusrepeat(status);
+		
+	}
+	@Step
+	public void change_status_closed(String status) throws InterruptedException {
+		homePage.changestatusclosed(status);
+		
+	}
+	
+	@Step
+	public void change_status_hold(String status,String reason) throws InterruptedException {
+		homePage.changestatushold(status,reason);
+	}
+	
+	@Step
+	public void create_incident_withoutmandetoryfields() {
+		homePage.createincidentwithoutmandetoryfields();
+	}
+	
+	@Step
+	public void verify_error_message() {
+		homePage.verifyerrormessage();
+	}
 }

@@ -1,6 +1,7 @@
 package net.thucydides.showcase.cucumber.pages;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.awt.AWTException;
 import java.awt.Robot;
@@ -48,6 +49,8 @@ public class HomePage extends PageObject {
 	WebElementFacade submit_button;
 	@FindBy(xpath = "//div[@class='navbar-header']")
 	WebElementFacade get_IncidentNum;
+	@FindBy(xpath = "//div[@class=\"navbar-title-display-value\"]")
+	WebElementFacade get_Incident;
 	@FindBy(xpath = "//select[@id=\"IO:5a33d0ef0a0a0b9b007b906f6c589c57\"]")
 
 	WebElementFacade select_urgency;
@@ -90,11 +93,20 @@ public class HomePage extends PageObject {
 
 	@FindBy(xpath = "//table[@id='incident_table']")
 	WebElementFacade systemAdmin_Incidents_Table;
-	//@FindBy(xpath = "//strong[contains(text(),'Create Incident')]")
-//	WebElementFacade createIncident_expand;
-//	@FindBy(xpath = "//a[@class='sc_bottom_link']")
-//	WebElementFacade view_all;
-
+	@FindBy(xpath = "//select[@id='incident.state']")
+	WebElementFacade insident_state;
+	
+   @FindBy(xpath="//div[contains(text(),'Save')]")
+   WebElementFacade save_button;
+   @FindBy(xpath="//select[@id='incident.hold_reason']")
+   WebElementFacade hold_status;
+   @FindBy(xpath="//span[@class='outputmsg_text']")
+   WebElementFacade error_message;
+ 
+   
+ //select[@id='incident.hold_reason']
+   @FindBy(xpath="//button[@id='sysverb_update']")
+   WebElementFacade Update_button;
 	// @FindBy(xpath = "//a[text() ='" + value + "']")
 	// WebElementFacade incidentNum;
 
@@ -105,6 +117,9 @@ public class HomePage extends PageObject {
 	WebElementFacade toggleMoreOptions;
 	@FindBy(xpath = "//span[@class='list_view']")
 	WebElementFacade listView;
+	@FindBy(xpath = "//option[contains(text(),'In Progress')]")
+	WebElementFacade inprogress;
+	
 
 	@FindBy(xpath = "//strong[contains(text(),'Create Incident')]")
 	WebElementFacade createIncident_expand;
@@ -576,7 +591,88 @@ public class HomePage extends PageObject {
 		waitforelement(submit_button);
 		scrollToElement_N_click(submit_button);
 		load_page();
-		waitforelement(get_IncidentNum);
-		new_Incidentnum = get_IncidentNum.getText();
+		waitforelement(get_Incident);
+		new_Incidentnum = get_Incident.getText();
+		new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(Update_button));
+		Update_button.click();
+		
 	}
+	public void changestatus(String status) throws InterruptedException {
+		
+		getDriver().switchTo().defaultContent();
+		new WebDriverWait(getDriver(), 40).until(ExpectedConditions.visibilityOf(Incidents));
+		Incidents.click();
+		getDriver().manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
+		String link = new_Incidentnum.substring(0, 10);
+		clickIncidentFromTable(link);
+     	new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(insident_state));
+		insident_state.click();
+		WebElement update_status = getDriver().findElement(By.xpath("//option[contains(text(),"+status+")]"));
+		update_status.click();
+		new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(Update_button));
+		Update_button.click();
+		
+	}
+public void changestatusrepeat(String status) throws InterruptedException {
+		String link = new_Incidentnum.substring(0, 10);
+		WebElement incidentNum = getDriver().findElement(By.xpath("//a[text() ='" + link + "']"));
+		incidentNum.click();
+     	new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(insident_state));
+		insident_state.click();
+		WebElement update_status = getDriver().findElement(By.xpath("//option[contains(text(),"+status+")]"));
+		update_status.click();
+		new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(Update_button));
+		Update_button.click();
+		
+	}
+public void changestatushold(String status,String reason) throws InterruptedException {
+	String link = new_Incidentnum.substring(0, 10);
+	WebElement incidentNum = getDriver().findElement(By.xpath("//a[text() ='" + link + "']"));
+	incidentNum.click();
+ 	new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(insident_state));
+	insident_state.click();
+	WebElement update_status = getDriver().findElement(By.xpath("//option[contains(text(),"+status+")]"));
+	update_status.click();
+ 	new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(hold_status));
+ 	hold_status.click();
+ 	WebElement update_reason = getDriver().findElement(By.xpath("//option[contains(text(),"+reason+")]"));
+ 	update_reason.click();
+	new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(Update_button));
+	Update_button.click();
+	
+}
+
+public void createincidentwithoutmandetoryfields() {
+	load_page();
+	getDriver().switchTo().defaultContent();
+	new WebDriverWait(getDriver(), 40).until(ExpectedConditions.visibilityOf(Incidents));
+	getDriver().switchTo().frame(0);
+	new WebDriverWait(getDriver(), 40).until(ExpectedConditions.visibilityOf(view_all));
+	view_all.click();
+	new WebDriverWait(getDriver(), 40).until(ExpectedConditions.visibilityOf(createIncident_expand));
+	createIncident_expand.click();
+	load_page();
+	waitforelement(submit_button);
+	scrollToElement_N_click(submit_button);
+	load_page();
+}
+
+public void verifyerrormessage() {
+	load_page();
+	assertTrue(error_message.isDisplayed());
+	
+}
+public void changestatusclosed(String status) throws InterruptedException {
+	String link = new_Incidentnum.substring(0, 10);
+	WebElement incidentNum = getDriver().findElement(By.xpath("//a[text() ='" + link + "']"));
+	incidentNum.click();
+ 	new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(insident_state));
+	insident_state.click();
+	WebElement update_status = getDriver().findElement(By.xpath("//option[contains(text(),"+status+")]"));
+	update_status.click();
+	new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(Update_button));
+	Update_button.click();
+	
+}
+
 }

@@ -76,7 +76,7 @@ public class VerifyIncidentNumberScenarioSteps {
 
 	@Then("^User Clicks on Incidents tab on dashboard On Left$")
 	public void user_Clicks_on_Incidents_tab_on_dashboard() {
-		homePage.click_IncidenTabOnLeft();
+		homePage.click_IncidenTab();
 	}
 
 	@Then("^User Search for the incident using search functionality$")
@@ -137,6 +137,7 @@ public class VerifyIncidentNumberScenarioSteps {
 
 	@Then("^User will click the incident$")
 	public void user_will_click_the_incident(DataTable number) {
+		homePage.click_IncidenTabOnLeft();
 		try {
 			List<List<String>> inc_Number = number.raw();
 			System.out.println(inc_Number.get(1).get(0));
@@ -159,5 +160,39 @@ public class VerifyIncidentNumberScenarioSteps {
 		}
 
 	}
+	
+    @When("I create new Incident and change its status to (.*) .")
+    public void iCreateNewIncidentAndChangeItsStatusToInProgress(String status) throws InterruptedException {
+    	incident.change_status(status);
+    	
+    }
+    @And("I change Status to On (.*) With reason (.*) .")
+    public void  iChangeStatusToOnHoldWithReasonITSMIdentifier(String status,String reason) throws InterruptedException {
+    	incident.change_status_hold(status,reason);
+    	
+    }
+    @And ("I change status to (.*) add Resolution Code and Resolution Notes then press Save")
+    public void iChangeStatusToResolved(String status) throws InterruptedException {
+    	incident.change_status_repeat(status);
+    	
+    }
+    
+    @Then("I change status (.*) .")
+    public void iChangeStatusToClosed(String status) throws InterruptedException {
+    	incident.change_status_closed(status);
+    	
+    }
+    
+    @When("I create new Incident and Click on Submit without Mandetory Fields.")
+    public void  iCreateNewIncidentWithoutMandetoryFields() {
+    	incident.create_incident_withoutmandetoryfields();
+    }
+    @Then("I verify error message for Mandetory fields.")
+    public void iVverifyErrorMessageForMandetoryfields() {
+    	incident.verify_error_message();
+    	
+    }
+    
+
 
 }

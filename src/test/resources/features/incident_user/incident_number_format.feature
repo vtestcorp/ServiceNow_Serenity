@@ -10,8 +10,8 @@ Feature: All related test scenarios to Incident User
     When I Navigate to Incidents and click on Attachment
     Then User should be able to add attachments
 
-  #When  I Remove an attachment
-  #Then User should be able to remove Attachment
+  When  I Remove an attachment
+  Then User should be able to remove Attachment
   Scenario: Ensure that Incident can be cancelled
     Given I Login to ServiceNow Application with valid credentials
     When I Click Incidents and open any incident
@@ -20,22 +20,13 @@ Feature: All related test scenarios to Incident User
   Scenario: Ensure that ITIL user role can create a new Incident
     Given I Login to ServiceNow Application with valid credentials
     Then User Clicks on Incidents tab on dashboard On Left
-    #When User cliks on New Button to create an incident
+    When User cliks on New Button to create an incident
     And User selects value from More Information dropdown
       | 3 - Low |
     Then User will enter the description and click submit button
       | Hardware Problem |
 
-  Scenario: Ensure that ITIL user can search for the incident using search functionality
-    Given I Login to ServiceNow Application with valid credentials
-    Then User Clicks on Incidents tab on dashboard On Left
-    And User selects value from More Information dropdown
-      | 3 - Low |
-    Then User will enter the description and click submit button
-      | Software Problem |
-    Then User Search for the incident using search functionality
-      | Incident Number |
-      | INC0010087      |
+  
 
   Scenario: Incident Analyst can see the email window pop
     Given I Login to ServiceNow Application with valid credentials
@@ -53,3 +44,19 @@ Feature: All related test scenarios to Incident User
     Then User Search for the incident using search functionality
       | Incident Number |
       | INC0010002      |
+      
+      
+   Scenario: Ensure that Incident Analyst can move the ticket through the Incident states manually
+    Given I Login to ServiceNow Application with valid credentials
+    When I create new Incident and change its status to 'In Progress' .
+    And  I change Status to On 'Hold' With reason 'Awaiting Vendor' .
+    And  I change status to 'Resolved' add Resolution Code and Resolution Notes then press Save
+    Then I change status 'Closed' .
+   
+   Scenario: Ensure that Incident has mandatory fields
+   Given I Login to ServiceNow Application with valid credentials
+   When I create new Incident and Click on Submit without Mandetory Fields.
+   Then I verify error message for Mandetory fields.
+   
+   
+
