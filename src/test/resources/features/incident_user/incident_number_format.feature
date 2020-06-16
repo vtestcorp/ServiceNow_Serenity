@@ -19,10 +19,9 @@ Feature: All related test scenarios to Incident User
     Given I Login to ServiceNow Application with valid credentials
     When I Navigate to Incidents and click on Attachment
     Then User should be able to add attachments
+   #When  I Remove an attachment
+   #Then User should be able to remove Attachment
 
-
-  #When  I Remove an attachment
-  #Then User should be able to remove Attachment
   Scenario: Ensure that Incident can be cancelled
     Given I Login to ServiceNow Application with valid credentials
     When I Click Incidents and open any incident
