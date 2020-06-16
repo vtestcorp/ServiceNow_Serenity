@@ -4,8 +4,7 @@ Feature: All related test scenarios to Incident User
     Given I Login to ServiceNow Application with valid credentials
     When I Create New Incident and get Incident Number Format
     Then I verify Number field is autopopulated as with prefix INC with 7 digits starting at 10,000
-    
-@Test
+
   Scenario: Ensure that ITIL user role can create a new Incident
     Given I Login to ServiceNow Application with valid credentials
     Then User Clicks on Incidents tab on dashboard On Left
@@ -21,7 +20,6 @@ Feature: All related test scenarios to Incident User
     When I Remove an attachment
     Then User should be able to remove Attachment
 
-  @Test
   Scenario: Incident Analyst can see the email window pop
     Given I Login to ServiceNow Application with valid credentials
     Then User Clicks on Incidents tab on dashboard
@@ -34,8 +32,7 @@ Feature: All related test scenarios to Incident User
     Given I Login to ServiceNow Application with valid credentials
     When I Click Incidents and open any incident
     Then I click on Delete
-    
-@Test
+
   Scenario: Ensure that ITIL user can search for the incident using search functionality
     Given I Login to ServiceNow Application with valid credentials
     Then User Clicks on Incidents tab on dashboard
@@ -43,7 +40,6 @@ Feature: All related test scenarios to Incident User
       | Incident Number |
       | INC0010002      |
 
-  #@Test
   Scenario: Ensure that ITIL user can resolve the incident
     Given I Login to ServiceNow Application with valid credentials
     Then User Clicks on Incidents tab on dashboard
