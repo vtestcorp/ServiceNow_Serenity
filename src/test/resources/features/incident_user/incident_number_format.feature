@@ -25,18 +25,6 @@ Feature: All related test scenarios to Incident User
       | 3 - Low |
     Then User will enter the description and click submit button
       | Hardware Problem |
-
-  Scenario: Ensure that ITIL user can search for the incident using search functionality
-    Given I Login to ServiceNow Application with valid credentials
-    Then User Clicks on Incidents tab on dashboard On Left
-    And User selects value from More Information dropdown
-      | 3 - Low |
-    Then User will enter the description and click submit button
-      | Software Problem |
-    Then User Search for the incident using search functionality
-      | Incident Number |
-      | INC0010087      |
-
    
   Scenario: Incident Analyst can see the email window pop
     Given I Login to ServiceNow Application with valid credentials
