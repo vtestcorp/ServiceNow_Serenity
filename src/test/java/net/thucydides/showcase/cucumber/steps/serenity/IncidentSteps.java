@@ -1,10 +1,10 @@
 package net.thucydides.showcase.cucumber.steps.serenity;
 
+import java.awt.AWTException;
+
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import net.thucydides.showcase.cucumber.pages.HomePage;
-
-import java.awt.AWTException;
 
 @SuppressWarnings("serial")
 public class IncidentSteps extends ScenarioSteps {

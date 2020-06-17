@@ -28,7 +28,6 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.PageObject;
 
-
 public class HomePage extends PageObject {
 	private String new_Incidentnum;
 
@@ -97,18 +96,17 @@ public class HomePage extends PageObject {
 	WebElementFacade systemAdmin_Incidents_Table;
 	@FindBy(xpath = "//select[@id='incident.state']")
 	WebElementFacade insident_state;
-	
-   @FindBy(xpath="//div[contains(text(),'Save')]")
-   WebElementFacade save_button;
-   @FindBy(xpath="//select[@id='incident.hold_reason']")
-   WebElementFacade hold_status;
-   @FindBy(xpath="//span[@class='outputmsg_text']")
-   WebElementFacade error_message;
- 
-   
- //select[@id='incident.hold_reason']
-   @FindBy(xpath="//button[@id='sysverb_update']")
-   WebElementFacade Update_button;
+
+	@FindBy(xpath = "//div[contains(text(),'Save')]")
+	WebElementFacade save_button;
+	@FindBy(xpath = "//select[@id='incident.hold_reason']")
+	WebElementFacade hold_status;
+	@FindBy(xpath = "//span[@class='outputmsg_text']")
+	WebElementFacade error_message;
+
+	// select[@id='incident.hold_reason']
+	@FindBy(xpath = "//button[@id='sysverb_update']")
+	WebElementFacade Update_button;
 	// @FindBy(xpath = "//a[text() ='" + value + "']")
 	// WebElementFacade incidentNum;
 
@@ -121,13 +119,11 @@ public class HomePage extends PageObject {
 	WebElementFacade listView;
 	@FindBy(xpath = "//option[contains(text(),'In Progress')]")
 	WebElementFacade inprogress;
-	
 
 	@FindBy(xpath = "//strong[contains(text(),'Create Incident')]")
 	WebElementFacade createIncident_expand;
 	@FindBy(xpath = "//a[@class='sc_bottom_link']")
 	WebElementFacade view_all;
-
 
 	@FindBy(xpath = "//div[text()='Incidents']")
 	WebElementFacade leftIncident;
@@ -145,8 +141,8 @@ public class HomePage extends PageObject {
 	WebElementFacade logoutButton;
 	//
 
-	@FindBy(xpath = "//div[text()='Incidents']")
-//	WebElementFacade leftIncident;
+	@FindBy(xpath = "incident.short_description")
+	WebElementFacade shortDescription;
 
 	Select select;
 	public File file;
@@ -204,28 +200,31 @@ public class HomePage extends PageObject {
 		element.click();
 	}
 
-
-//	public void createincidentgetnumber() throws InterruptedException {
-//		
-//		 load_page();
-//		 getDriver().switchTo().defaultContent();
-//		 new WebDriverWait(getDriver(),40).until(ExpectedConditions.visibilityOf(Incidents));
-//		 getDriver().switchTo().frame(0);
-//		 new WebDriverWait(getDriver(),40).until(ExpectedConditions.visibilityOf(view_all));
-//		 view_all.click();
-//		 new WebDriverWait(getDriver(),40).until(ExpectedConditions.visibilityOf(createIncident_expand));
-//
-//		 createIncident_expand.click();
-//		 load_page();
-//		 new WebDriverWait(getDriver(),40).until(ExpectedConditions.visibilityOf(select_urgency));
-//		 Utility.selectByText(select_urgency, "2 - Medium");
-//		more_information.sendKeys("Test Parent Incident");
-//		waitforelement(submit_button);
-//		scrollToElement_N_click(submit_button);
-//		load_page();
-//		waitforelement(get_IncidentNum);
-//		new_Incidentnum = get_IncidentNum.getText();
-//	}
+	// public void createincidentgetnumber() throws InterruptedException {
+	//
+	// load_page();
+	// getDriver().switchTo().defaultContent();
+	// new
+	// WebDriverWait(getDriver(),40).until(ExpectedConditions.visibilityOf(Incidents));
+	// getDriver().switchTo().frame(0);
+	// new
+	// WebDriverWait(getDriver(),40).until(ExpectedConditions.visibilityOf(view_all));
+	// view_all.click();
+	// new
+	// WebDriverWait(getDriver(),40).until(ExpectedConditions.visibilityOf(createIncident_expand));
+	//
+	// createIncident_expand.click();
+	// load_page();
+	// new
+	// WebDriverWait(getDriver(),40).until(ExpectedConditions.visibilityOf(select_urgency));
+	// Utility.selectByText(select_urgency, "2 - Medium");
+	// more_information.sendKeys("Test Parent Incident");
+	// waitforelement(submit_button);
+	// scrollToElement_N_click(submit_button);
+	// load_page();
+	// waitforelement(get_IncidentNum);
+	// new_Incidentnum = get_IncidentNum.getText();
+	// }
 
 	// public void createincidentgetnumber() throws InterruptedException {
 	// load_page();
@@ -266,18 +265,15 @@ public class HomePage extends PageObject {
 
 	public void clicknewbutton() {
 		load_page();
-		 getDriver().switchTo().defaultContent();
-		 new WebDriverWait(getDriver(),40).until(ExpectedConditions.visibilityOf(Incidents));
-		 getDriver().switchTo().frame(0);
-		 new WebDriverWait(getDriver(),40).until(ExpectedConditions.visibilityOf(view_all));
-		 view_all.click();
-		 new WebDriverWait(getDriver(),40).until(ExpectedConditions.visibilityOf(createIncident_expand));
+		getDriver().switchTo().defaultContent();
+		new WebDriverWait(getDriver(), 40).until(ExpectedConditions.visibilityOf(Incidents));
+		getDriver().switchTo().frame(0);
+		new WebDriverWait(getDriver(), 40).until(ExpectedConditions.visibilityOf(view_all));
+		view_all.click();
+		new WebDriverWait(getDriver(), 40).until(ExpectedConditions.visibilityOf(createIncident_expand));
 
-		 createIncident_expand.click();
-		 load_page();
-
-		
-		 
+		createIncident_expand.click();
+		load_page();
 
 		getDriver().switchTo().defaultContent();
 		new WebDriverWait(getDriver(), 40).until(ExpectedConditions.visibilityOf(new_Button));
@@ -389,7 +385,7 @@ public class HomePage extends PageObject {
 	public void click_IncidenTabOnLeft() {
 
 		try {
-				// getDriver().switchTo().defaultContent();
+			// getDriver().switchTo().defaultContent();
 			// new WebDriverWait(getDriver(),
 			// 40).until(ExpectedConditions.visibilityOf(incidentTab));
 			// incidentTab.click();
@@ -619,10 +615,10 @@ public class HomePage extends PageObject {
 		new_Incidentnum = get_Incident.getText();
 		new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(Update_button));
 		Update_button.click();
-		
+
 	}
 
-
+	@Step
 	public void clickResolvebutton() {
 		try {
 			new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(resolve_Button));
@@ -633,6 +629,7 @@ public class HomePage extends PageObject {
 		}
 	}
 
+	@Step
 	public void verify() {
 		try {
 			new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(resolve_Status));
@@ -643,6 +640,79 @@ public class HomePage extends PageObject {
 			System.out.println("Status is " + select.getFirstSelectedOption().getText());
 
 			assertEquals("Resolved", select.getFirstSelectedOption().getText());
+
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Step
+	public void changeStateDropdown(String value) {
+		try {
+			new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(resolve_Status));
+
+			Select select = new Select(resolve_Status);
+
+			select.selectByVisibleText(value);
+
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Step
+	public void changeOnHoldReason(String value) {
+		try {
+			new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(hold_status));
+
+			Select select = new Select(hold_status);
+
+			select.selectByVisibleText(value);
+
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Step
+	public void verifyAdditionalCommentsError(String value) {
+		try {
+			String error = "The following mandatory fields are not filled in: Additional comments (Customer visible)";
+			WebElement errorMessage = getDriver().findElement(By.xpath("//span[text()='" + value + "']"));
+			new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(errorMessage));
+			if (errorMessage.getText().equalsIgnoreCase(error))
+
+				assertEquals(error, errorMessage.getText());
+			System.out.println("Error verified as " + error);
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Step
+	public void enterShortDescription(String value) {
+		try {
+			new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(shortDescription));
+
+			shortDescription.sendKeys(value);
+
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Step
+	public void clickUpdateButton() {
+		try {
+			new WebDriverWait(getDriver(), 20).until(ExpectedConditions.elementToBeClickable(Update_button));
+
+			Update_button.click();
 
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		} catch (Exception e) {
@@ -709,82 +779,84 @@ public class HomePage extends PageObject {
 	}
 
 	public void changestatus(String status) throws InterruptedException {
-		
+
 		getDriver().switchTo().defaultContent();
 		new WebDriverWait(getDriver(), 40).until(ExpectedConditions.visibilityOf(Incidents));
 		Incidents.click();
 		getDriver().manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
 		String link = new_Incidentnum.substring(0, 10);
 		clickIncidentFromTable(link);
-     	new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(insident_state));
+		new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(insident_state));
 		insident_state.click();
-		WebElement update_status = getDriver().findElement(By.xpath("//option[contains(text(),"+status+")]"));
+		WebElement update_status = getDriver().findElement(By.xpath("//option[contains(text()," + status + ")]"));
 		update_status.click();
 		new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(Update_button));
 		Update_button.click();
-		
+
 	}
-public void changestatusrepeat(String status) throws InterruptedException {
+
+	public void changestatusrepeat(String status) throws InterruptedException {
 		String link = new_Incidentnum.substring(0, 10);
 		WebElement incidentNum = getDriver().findElement(By.xpath("//a[text() ='" + link + "']"));
 		incidentNum.click();
-     	new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(insident_state));
+		new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(insident_state));
 		insident_state.click();
-		WebElement update_status = getDriver().findElement(By.xpath("//option[contains(text(),"+status+")]"));
+		WebElement update_status = getDriver().findElement(By.xpath("//option[contains(text()," + status + ")]"));
 		update_status.click();
 		new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(Update_button));
 		Update_button.click();
-		
+
 	}
-public void changestatushold(String status,String reason) throws InterruptedException {
-	String link = new_Incidentnum.substring(0, 10);
-	WebElement incidentNum = getDriver().findElement(By.xpath("//a[text() ='" + link + "']"));
-	incidentNum.click();
- 	new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(insident_state));
-	insident_state.click();
-	WebElement update_status = getDriver().findElement(By.xpath("//option[contains(text(),"+status+")]"));
-	update_status.click();
- 	new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(hold_status));
- 	hold_status.click();
- 	WebElement update_reason = getDriver().findElement(By.xpath("//option[contains(text(),"+reason+")]"));
- 	update_reason.click();
-	new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(Update_button));
-	Update_button.click();
-	
-}
 
-public void createincidentwithoutmandetoryfields() {
-	load_page();
-	getDriver().switchTo().defaultContent();
-	new WebDriverWait(getDriver(), 40).until(ExpectedConditions.visibilityOf(Incidents));
-	getDriver().switchTo().frame(0);
-	new WebDriverWait(getDriver(), 40).until(ExpectedConditions.visibilityOf(view_all));
-	view_all.click();
-	new WebDriverWait(getDriver(), 40).until(ExpectedConditions.visibilityOf(createIncident_expand));
-	createIncident_expand.click();
-	load_page();
-	waitforelement(submit_button);
-	scrollToElement_N_click(submit_button);
-	load_page();
-}
+	public void changestatushold(String status, String reason) throws InterruptedException {
+		String link = new_Incidentnum.substring(0, 10);
+		WebElement incidentNum = getDriver().findElement(By.xpath("//a[text() ='" + link + "']"));
+		incidentNum.click();
+		new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(insident_state));
+		insident_state.click();
+		WebElement update_status = getDriver().findElement(By.xpath("//option[contains(text()," + status + ")]"));
+		update_status.click();
+		new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(hold_status));
+		hold_status.click();
+		WebElement update_reason = getDriver().findElement(By.xpath("//option[contains(text()," + reason + ")]"));
+		update_reason.click();
+		new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(Update_button));
+		Update_button.click();
 
-public void verifyerrormessage() {
-	load_page();
-	assertTrue(error_message.isDisplayed());
-	
-}
-public void changestatusclosed(String status) throws InterruptedException {
-	String link = new_Incidentnum.substring(0, 10);
-	WebElement incidentNum = getDriver().findElement(By.xpath("//a[text() ='" + link + "']"));
-	incidentNum.click();
- 	new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(insident_state));
-	insident_state.click();
-	WebElement update_status = getDriver().findElement(By.xpath("//option[contains(text(),"+status+")]"));
-	update_status.click();
-	new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(Update_button));
-	Update_button.click();
-	
-}
+	}
 
+	public void createincidentwithoutmandetoryfields() {
+		load_page();
+		getDriver().switchTo().defaultContent();
+		new WebDriverWait(getDriver(), 40).until(ExpectedConditions.visibilityOf(Incidents));
+		getDriver().switchTo().frame(0);
+		new WebDriverWait(getDriver(), 40).until(ExpectedConditions.visibilityOf(view_all));
+		view_all.click();
+		new WebDriverWait(getDriver(), 40).until(ExpectedConditions.visibilityOf(createIncident_expand));
+		createIncident_expand.click();
+		load_page();
+		waitforelement(submit_button);
+		scrollToElement_N_click(submit_button);
+		load_page();
+	}
+
+	public void verifyerrormessage() {
+		load_page();
+		assertTrue(error_message.isDisplayed());
+
+	}
+
+	public void changestatusclosed(String status) throws InterruptedException {
+		String link = new_Incidentnum.substring(0, 10);
+		WebElement incidentNum = getDriver().findElement(By.xpath("//a[text() ='" + link + "']"));
+		incidentNum.click();
+		new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(insident_state));
+		insident_state.click();
+		WebElement update_status = getDriver().findElement(By.xpath("//option[contains(text()," + status + ")]"));
+		update_status.click();
+		new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(Update_button));
+		Update_button.click();
+
+	}
 
 }

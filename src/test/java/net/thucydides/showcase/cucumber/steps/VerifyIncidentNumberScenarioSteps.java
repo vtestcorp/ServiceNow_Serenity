@@ -1,5 +1,8 @@
 package net.thucydides.showcase.cucumber.steps;
 
+import java.awt.AWTException;
+import java.util.List;
+
 import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -9,8 +12,6 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.showcase.cucumber.pages.HomePage;
 import net.thucydides.showcase.cucumber.pages.Utils;
 import net.thucydides.showcase.cucumber.steps.serenity.IncidentSteps;
-import java.awt.AWTException;
-import java.util.List;
 
 public class VerifyIncidentNumberScenarioSteps {
 
@@ -288,5 +289,54 @@ public class VerifyIncidentNumberScenarioSteps {
 			e.printStackTrace();
 		}
 	}
+
+	@Then("^User Change the Incident State to$")
+	public void user_Change_the_Incident_State_to(DataTable stateDropdown) {
+		try {
+			List<List<String>> value = stateDropdown.raw();
+
+			System.out.println(value.get(1).get(0));
+			homePage.changeStateDropdown(value.get(1).get(0));
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+	}
+
+	@Then("^User Change the on hold reason to$")
+	public void user_Change_the_on_hold_reason_to(DataTable onHoldReason) {
+		try {
+			List<List<String>> value = onHoldReason.raw();
+
+			System.out.println(value.get(1).get(0));
+			homePage.changeOnHoldReason(value.get(1).get(0));
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+	}
+
+	@Then("^User click Update button$")
+	public void user_click_Update_button() {
+		try {
+			homePage.clickUpdateButton();
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+	}
+	@Then("^Verifies error for Additional Comments$")
+	public void verifies_error_for_Additional_Comments(DataTable Error) {
+		try {
+			List<List<String>> message = Error.raw();
+
+			System.out.println(message.get(1).get(0));
+			homePage.verifyAdditionalCommentsError(message.get(1).get(0));
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+	}
+
 
 }
