@@ -84,7 +84,6 @@ Feature: All related test scenarios to Incident User
 
   Scenario: User should be able to change state of incident to on hold,
     on hold reason Awaiting Caller and verify additional commnets to be mandate field
-
     Given I Login to ServiceNow Application with valid credentials
     Then User Clicks on Incidents tab on dashboard On Left
     And User selects value from More Information dropdown
