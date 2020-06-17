@@ -1,4 +1,42 @@
 -------------------------------------------------------------------------------
 Test set: net.thucydides.showcase.cucumber.VerifyIncidentNumber
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 221.786 sec - in net.thucydides.showcase.cucumber.VerifyIncidentNumber
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 105.909 sec <<< FAILURE! - in net.thucydides.showcase.cucumber.VerifyIncidentNumber
+Ensure that Incident Copy action can copy Incident Details swiftly(All related test scenarios to Incident User)  Time elapsed: 103.9 sec  <<< ERROR!
+org.openqa.selenium.NoSuchElementException: Unable to locate element: //a[text() ='INC0010147']
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-Q02RRK1', ip: '10.0.0.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_241'
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 78.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20200612174529, moz:geckodriverVersion: 0.26.0, moz:headless: false, moz:processID: 14556, moz:profile: C:\Users\Admin\AppData\Loca..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, rotatable: false, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: ac11a9e3-38a6-4fa5-aef0-e37025c0b45d
+*** Element info: {Using=xpath, value=//a[text() ='INC0010147']}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at net.thucydides.core.webdriver.WebDriverFacade.findElement(WebDriverFacade.java:232)
+	at net.thucydides.showcase.cucumber.pages.HomePage.copyincident(HomePage.java:888)
+	at net.thucydides.showcase.cucumber.steps.serenity.IncidentSteps.copy_incident(IncidentSteps.java:130)
+	at net.thucydides.showcase.cucumber.steps.serenity.IncidentSteps$$EnhancerByCGLIB$$3507deef.CGLIB$copy_incident$16(<generated>)
+	at net.thucydides.showcase.cucumber.steps.serenity.IncidentSteps$$EnhancerByCGLIB$$3507deef$$FastClassByCGLIB$$d7aa57d0.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:477)
+	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:462)
+	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:437)
+	at net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:178)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:165)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:71)
+	at net.thucydides.showcase.cucumber.steps.serenity.IncidentSteps$$EnhancerByCGLIB$$3507deef.copy_incident(<generated>)
+	at net.thucydides.showcase.cucumber.steps.VerifyIncidentNumberScenarioSteps.iReopenItAndClickOnCopyIncident(VerifyIncidentNumberScenarioSteps.java:311)
+	at ?.I reopen it and click on copy Incident(src/test/resources/features/incident_user/incident_number_format.Feature:86)
+

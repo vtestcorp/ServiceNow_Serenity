@@ -1,4 +1,4 @@
-Feature: All related test scenarios to Incident User
+ Feature: All related test scenarios to Incident User
 
   Scenario: Ensure that "Number" field is autopopulated as with prefix INC with 7 digits starting at 10,000
     Given I Login to ServiceNow Application with valid credentials
@@ -19,8 +19,8 @@ Feature: All related test scenarios to Incident User
     Given I Login to ServiceNow Application with valid credentials
     When I Navigate to Incidents and click on Attachment
     Then User should be able to add attachments
-   #When  I Remove an attachment
-   #Then User should be able to remove Attachment
+    #When  I Remove an attachment
+    #Then User should be able to remove Attachment
 
   Scenario: Ensure that Incident can be cancelled
     Given I Login to ServiceNow Application with valid credentials
@@ -74,5 +74,18 @@ Feature: All related test scenarios to Incident User
    Then I verify error message for Mandetory fields.
    
    
+   
+   Scenario: Ensure that a new Incident has default field values
+   Given I Login to ServiceNow Application with valid credentials
+   When I create new Incident and Inspect default values on the new Incident form
+   Then I verify list of Empty fields on the form
+   
+   Scenario: Ensure that Incident Copy action can copy Incident Details swiftly
+   Given I Login to ServiceNow Application with valid credentials
+   When  I create new incident and record its fields values
+   Then I reopen it and click on copy Incident
+   And  I verify copied Incident has all data from Parent Incident and its Number is present
+
+  
 
 

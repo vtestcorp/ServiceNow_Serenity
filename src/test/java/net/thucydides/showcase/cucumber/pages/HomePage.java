@@ -17,6 +17,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -104,7 +105,9 @@ public class HomePage extends PageObject {
    WebElementFacade hold_status;
    @FindBy(xpath="//span[@class='outputmsg_text']")
    WebElementFacade error_message;
- 
+   @FindBy(xpath="//button[@data-original-title=\"Next page\"]//span")
+   WebElementFacade nextpage_button;
+   
    
  //select[@id='incident.hold_reason']
    @FindBy(xpath="//button[@id='sysverb_update']")
@@ -143,7 +146,29 @@ public class HomePage extends PageObject {
 
 	@FindBy(linkText = "Logout")
 	WebElementFacade logoutButton;
-	//
+	@FindBy(xpath = "//input[@id='incident.opened_at']")
+	WebElementFacade get_openedatvalue;
+	@FindBy(xpath = "//input[@id='incident.closed_at']")
+	WebElementFacade get_closedatvalue;
+	@FindBy(xpath = "//input[@id='cxs_related_search']")
+	WebElementFacade related_search;
+	@FindBy(xpath = "//input[@id='incident.short_description']")
+	WebElementFacade short_description;
+	@FindBy(xpath = "//input[@id='sys_display.incident.caller_id']")
+	WebElementFacade get_caller;
+	@FindBy(xpath = "//span[@class='navbar_ui_actions']")
+	WebElementFacade header;
+	@FindBy(xpath = "//div[contains(text(),'Copy Incident')]")
+	WebElementFacade copy_incident;
+	@FindBy(xpath = "id=\"incident.work_notes\"")
+	WebElementFacade parent_incidentnumber;
+	
+	
+	
+	
+	
+	
+	//input[@id='cxs_related_search']
 
 	@FindBy(xpath = "//div[text()='Incidents']")
 //	WebElementFacade leftIncident;
@@ -152,6 +177,10 @@ public class HomePage extends PageObject {
 	public File file;
 	List<WebElement> listOfElements;
 	int size;
+	String getUrgency;
+	String getStatus;
+    String get_shortdescription;
+    String get_callervalue;
 
 	public void load_page() {
 		getDriver().manage().timeouts().implicitlyWait(10000, TimeUnit.SECONDS);
@@ -786,5 +815,101 @@ public void changestatusclosed(String status) throws InterruptedException {
 	
 }
 
+public void checkdefaultvalue() {
+	getDriver().switchTo().defaultContent();
+	new WebDriverWait(getDriver(), 40).until(ExpectedConditions.visibilityOf(Incidents));
+	Incidents.click();
+	getDriver().manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
+	getDriver().switchTo().frame(0);
+	nextpage_button.click();
+	new WebDriverWait(getDriver(), 40).until(ExpectedConditions.visibilityOf(new_Button));
+	new_Button.click();
+	String date_onform=get_openedatvalue.getAttribute("value");
+	String current_datetime=Utility.getcurrentdateandtime();
+	//assertEquals("Opend At field is present with value", current_datetime, date_onform);
+	getUrgency=get_dropdowndefaultvalue("incident.urgency");
+	assertEquals("Urgency field is present with value as 3-Low", "3 - Low", getUrgency);
+	getStatus=get_dropdowndefaultvalue("incident.state");
+	assertEquals("Urgency field is present with value as New", "New", getStatus);
+	
+
+}
+
+public void verifyemptyfield() {
+	         get_shortdescription=short_description.getAttribute("value");
+			String get_closedat=get_closedatvalue.getAttribute("value");
+			assertEquals("short description is null","",get_shortdescription);
+			assertEquals("closed at is null","",get_closedat);
+
+}
+
+public String get_dropdowndefaultvalue(String field) {
+	select = new Select(getDriver().findElement(By.xpath("//select[@id ='" + field + "']")));
+
+	WebElement option = select.getFirstSelectedOption();
+
+	String defaultItem = option.getText();
+
+	return defaultItem ;
+}
+
+
+public void createincidentrecordfields() {
+	load_page();
+	getDriver().switchTo().defaultContent();
+	new WebDriverWait(getDriver(), 40).until(ExpectedConditions.visibilityOf(Incidents));
+	getDriver().switchTo().frame(0);
+	new WebDriverWait(getDriver(), 40).until(ExpectedConditions.visibilityOf(view_all));
+	view_all.click();
+	new WebDriverWait(getDriver(), 40).until(ExpectedConditions.visibilityOf(createIncident_expand));
+
+	createIncident_expand.click();
+	load_page();
+	new WebDriverWait(getDriver(), 40).until(ExpectedConditions.visibilityOf(select_urgency));
+	Utility.selectByText(select_urgency, "2 - Medium");
+	more_information.sendKeys("Test Parent Incident");
+	waitforelement(submit_button);
+	scrollToElement_N_click(submit_button);
+	load_page();
+	waitforelement(get_Incident);
+	new_Incidentnum = get_Incident.getText();
+	getUrgency=get_dropdowndefaultvalue("incident.urgency");
+	getStatus=get_dropdowndefaultvalue("incident.state");
+    get_shortdescription=short_description.getAttribute("value");
+    get_callervalue=get_caller.getAttribute("value");
+    new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(Update_button));
+	Update_button.click();
+
+
+	
+}
+public void copyincident() {
+	String link = new_Incidentnum.substring(0, 10);
+	WebElement incidentNum = getDriver().findElement(By.xpath("//a[text() ='" + link + "']"));
+	incidentNum.click();
+	Actions actions = new Actions(getDriver());
+	actions.contextClick(header).perform();
+	new WebDriverWait(getDriver(), 40).until(ExpectedConditions.visibilityOf(copy_incident));
+	copy_incident.click();
+	
+}
+public void verifycopiedincident() {
+	String getCopiedUrgency=get_dropdowndefaultvalue("incident.urgency");
+	String getCopiedStatus=get_dropdowndefaultvalue("incident.state");
+    String get_Copiedshortdescription=short_description.getAttribute("value");
+    String get_Copiedcallervalue=get_caller.getAttribute("value");
+    JavascriptExecutor js = (JavascriptExecutor) getDriver();
+	js.executeScript("arguments[0].scrollIntoView();", parent_incidentnumber);
+	String get_parentIncidentnumber=parent_incidentnumber.getText();
+	String link = new_Incidentnum.substring(0, 10);
+	assertEquals("Urgency status is",getUrgency,getCopiedUrgency);
+	assertEquals("Incident Status is",getStatus,getCopiedStatus);
+
+	assertEquals("Short Description is",get_shortdescription,get_Copiedshortdescription);
+	 if(getCopiedUrgency.contains(link)){
+		 assert(true);
+	 }
+	
+}
 
 }

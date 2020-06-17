@@ -108,4 +108,30 @@ public class IncidentSteps extends ScenarioSteps {
 	public void verify_error_message() {
 		homePage.verifyerrormessage();
 	}
+	
+	@Step
+	public void check_default_value() {
+		homePage.checkdefaultvalue();
+	}
+	
+	@Step
+	public void verify_empty_field() {
+		homePage.verifyemptyfield();
+	}
+	
+	@Step
+	public void create_incident_record_fields() throws InterruptedException {
+		
+		homePage.createincidentrecordfields();
+	}
+	
+	@Step
+	public void copy_incident() {
+		homePage.copyincident();
+	}
+	
+	@Step
+	public void verify_copied_incident() {
+		homePage.verifycopiedincident();
+	}
 }

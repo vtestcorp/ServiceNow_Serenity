@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="net.thucydides.showcase.cucumber.VerifyIncidentNumber" time="217.974" tests="1" errors="0" skipped="0" failures="0">
+<testsuite name="net.thucydides.showcase.cucumber.VerifyIncidentNumber" time="103.9" tests="1" errors="1" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_241\jre\bin"/>
@@ -64,5 +64,114 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="Ensure that Incident Analyst can move the ticket through the Incident states manually" classname="All related test scenarios to Incident User" time="217.974"/>
+  <testcase name="Ensure that Incident Copy action can copy Incident Details swiftly" classname="All related test scenarios to Incident User" time="103.9">
+    <error message="Unable to locate element: //a[text() =&apos;INC0010147&apos;]&#10;For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html&#10;Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;&#10;System info: host: &apos;DESKTOP-Q02RRK1&apos;, ip: &apos;10.0.0.2&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_241&apos;&#10;Driver info: org.openqa.selenium.remote.RemoteWebDriver&#10;Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 78.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20200612174529, moz:geckodriverVersion: 0.26.0, moz:headless: false, moz:processID: 14556, moz:profile: C:\Users\Admin\AppData\Loca..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, rotatable: false, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}&#10;Session ID: ac11a9e3-38a6-4fa5-aef0-e37025c0b45d&#10;*** Element info: {Using=xpath, value=//a[text() =&apos;INC0010147&apos;]}" type="org.openqa.selenium.NoSuchElementException"><![CDATA[org.openqa.selenium.NoSuchElementException: Unable to locate element: //a[text() ='INC0010147']
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-Q02RRK1', ip: '10.0.0.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_241'
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 78.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20200612174529, moz:geckodriverVersion: 0.26.0, moz:headless: false, moz:processID: 14556, moz:profile: C:\Users\Admin\AppData\Loca..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, rotatable: false, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: ac11a9e3-38a6-4fa5-aef0-e37025c0b45d
+*** Element info: {Using=xpath, value=//a[text() ='INC0010147']}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at net.thucydides.core.webdriver.WebDriverFacade.findElement(WebDriverFacade.java:232)
+	at net.thucydides.showcase.cucumber.pages.HomePage.copyincident(HomePage.java:888)
+	at net.thucydides.showcase.cucumber.steps.serenity.IncidentSteps.copy_incident(IncidentSteps.java:130)
+	at net.thucydides.showcase.cucumber.steps.serenity.IncidentSteps$$EnhancerByCGLIB$$3507deef.CGLIB$copy_incident$16(<generated>)
+	at net.thucydides.showcase.cucumber.steps.serenity.IncidentSteps$$EnhancerByCGLIB$$3507deef$$FastClassByCGLIB$$d7aa57d0.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:477)
+	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:462)
+	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:437)
+	at net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:178)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:165)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:71)
+	at net.thucydides.showcase.cucumber.steps.serenity.IncidentSteps$$EnhancerByCGLIB$$3507deef.copy_incident(<generated>)
+	at net.thucydides.showcase.cucumber.steps.VerifyIncidentNumberScenarioSteps.iReopenItAndClickOnCopyIncident(VerifyIncidentNumberScenarioSteps.java:311)
+	at ✽.I reopen it and click on copy Incident(src/test/resources/features/incident_user/incident_number_format.Feature:86)
+]]></error>
+    <system-out><![CDATA[
+admin
+ssBk9O2aGFBv
+
+login complete
+
+
+
+
+]]></system-out>
+    <system-err><![CDATA[482 [main] INFO net.thucydides.core.steps.ConsoleLoggingListener - 
+
+-------------------------------------------------------------------------------------
+     _______. _______ .______       _______ .__   __.  __  .___________.____    ____ 
+    /       ||   ____||   _  \     |   ____||  \ |  | |  | |           |\   \  /   / 
+   |   (----`|  |__   |  |_)  |    |  |__   |   \|  | |  | `---|  |----` \   \/   /  
+    \   \    |   __|  |      /     |   __|  |  . `  | |  |     |  |       \_    _/   
+.----)   |   |  |____ |  |\  \----.|  |____ |  |\   | |  |     |  |         |  |     
+|_______/    |_______|| _| `._____||_______||__| \__| |__|     |__|         |__|    
+                                                                                     
+ News and tutorials at http://www.serenity-bdd.info                                  
+ Documentation at https://wakaleo.gitbooks.io/the-serenity-book/content/             
+ Join the Serenity Community on Rocket Chat at https://serenity-bdd.rocket.chat      
+ Serenity BDD Support and Training at http://serenity-bdd.info/#/trainingandsupport  
+ Learn Serenity BDD online at http://serenity-dojo.com                               
+-------------------------------------------------------------------------------------
+
+509 [main] INFO net.thucydides.core.steps.ConsoleLoggingListener - Test Suite Started: All related test scenarios to Incident User
+577 [main] INFO net.thucydides.core.steps.ConsoleLoggingListener - Test Suite Started: All related test scenarios to Incident User
+685 [main] INFO net.thucydides.core.steps.ConsoleLoggingListener - 
+ _____ _____ ____ _____   ____ _____  _    ____ _____ _____ ____  
+|_   _| ____/ ___|_   _| / ___|_   _|/ \  |  _ \_   _| ____|  _ \ 
+  | | |  _| \___ \ | |   \___ \ | | / _ \ | |_) || | |  _| | | | |
+  | | | |___ ___) || |    ___) || |/ ___ \|  _ < | | | |___| |_| |
+  |_| |_____|____/ |_|   |____/ |_/_/   \_\_| \_\|_| |_____|____/ 
+                                                                  
+
+TEST STARTED: Ensure that Incident Copy action can copy Incident Details swiftly
+-------------------------------------------------------------------(all-related-test-scenarios-to-incident-user;ensure-that-incident-copy-action-can-copy-incident-details-swiftly)
+Jun 17, 2020 8:02:02 PM org.openqa.selenium.remote.DesiredCapabilities firefox
+INFO: Using `new FirefoxOptions()` is preferred to `DesiredCapabilities.firefox()`
+Jun 17, 2020 8:02:02 PM org.openqa.selenium.remote.DesiredCapabilities firefox
+INFO: Using `new FirefoxOptions()` is preferred to `DesiredCapabilities.firefox()`
+1592404324350	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Admin\\AppData\\Local\\Temp\\rust_mozprofile7NYcxR"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1592404326667	Marionette	INFO	Listening on port 20329
+1592404326983	Marionette	WARN	TLS certificate errors will be ignored for this session
+Jun 17, 2020 8:02:07 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+JavaScript error: https://dev95151.service-now.com/scripts/doctype/js_includes_doctype.jsx?v=01-12-2020_1944&lp=Sun_Jun_07_03_13_17_PDT_2020&c=6_88, line 17148: SyntaxError: JSON.parse: unexpected end of data at line 1 column 1 of the JSON data
+JavaScript warning: https://dev95151.service-now.com/navpage.do, line 480: unreachable code after return statement
+1592404423608	Marionette	INFO	Stopped listening on port 20329
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+104772 [main] ERROR net.thucydides.core.steps.ConsoleLoggingListener - 
+           __  _____ _____ ____ _____   _____ _    ___ _     _____ ____  
+  _       / / |_   _| ____/ ___|_   _| |  ___/ \  |_ _| |   | ____|  _ \ 
+ (_)_____| |    | | |  _| \___ \ | |   | |_ / _ \  | || |   |  _| | | | |
+  _|_____| |    | | | |___ ___) || |   |  _/ ___ \ | || |___| |___| |_| |
+ (_)     | |    |_| |_____|____/ |_|   |_|/_/   \_\___|_____|_____|____/ 
+          \_\                                                            
+
+TEST FAILED WITH ERROR: Ensure that Incident Copy action can copy Incident Details swiftly
+---------------------------------------------------------------------
+104865 [main] ERROR net.thucydides.core.steps.ConsoleLoggingListener - TEST FAILED AT STEP Copy incident
+104865 [main] ERROR net.thucydides.core.steps.ConsoleLoggingListener - Unable to locate element: //a[text() ='INC0010147']
+]]></system-err>
+  </testcase>
 </testsuite>
