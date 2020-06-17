@@ -1,5 +1,2 @@
-net\thucydides\showcase\cucumber\steps\VerifyIncidentNumberScenarioSteps.class
-net\thucydides\showcase\cucumber\pages\HomePage.class
 net\thucydides\showcase\cucumber\VerifyIncidentNumber.class
 net\thucydides\showcase\cucumber\pages\Utils.class
-net\thucydides\showcase\cucumber\steps\serenity\IncidentSteps.class

@@ -104,7 +104,7 @@
             $("#requirements-tabs").tabs();
             $("#test-tabs").tabs();
 
-            var requirementsTree = [{"text":"All related test scenarios to Incident User","type":"feature","href":"0e4425e063091712c9790ec803cf0e6cff594236efa4e4508bba2d29a604486e.html","nodes":[],"selectable":false,"tags":["","\u003cspan class\u003d\u0027feature-count\u0027\u003e1 scenario\u003c/span\u003e"]}];
+            var requirementsTree = [{"text":"All related test scenarios to Incident User","type":"feature","href":"0e4425e063091712c9790ec803cf0e6cff594236efa4e4508bba2d29a604486e.html","nodes":[],"selectable":false,"tags":["","\u003cspan class\u003d\u0027feature-count\u0027\u003e2 scenarios\u003c/span\u003e"]}];
 
             $('#tree').treeview({
                 data: requirementsTree,
@@ -174,7 +174,7 @@
             <a href="#"><i class="fa fa-comments-o"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 16-06-2020 21:11</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 17-06-2020 18:08</span>
     <br style="clear:left"/>
 </div>
 
@@ -231,11 +231,11 @@
                                             <div id="toc">
                                                 <table class="table" id="toc-table">
                                                         <tr>
-                                                            <td style="width:99%;" class="toc-title"><a href="#356dea87a0730320225628231bb326677a688e6431ec00cf1b3b1a957b1b7291">Ensure that Incident Analyst can move the ticket through the Incident states manually</a>
+                                                            <td style="width:99%;" class="toc-title"><a href="#34e57dfb9f73e70f67a37ac8cd2f55151c2f1aaeb155a5d197acba5f75d5916a">Ensure that Incident Copy action can copy Incident Details swiftly</a>
 
 
                                                             </td>
-                                                            <td style="width:1%;"><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                            <td style="width:1%;"><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i>
                                                                
                                                             </td>
                                                         </tr>
@@ -246,27 +246,27 @@
                                             <h3>Scenario details</h3>
 
 
-                                                <div class="scenario-docs card" id="356dea87a0730320225628231bb326677a688e6431ec00cf1b3b1a957b1b7291">
-                                                    <div class="scenario-docs card-header success" style="min-height:1.5em;">
+                                                <div class="scenario-docs card" id="34e57dfb9f73e70f67a37ac8cd2f55151c2f1aaeb155a5d197acba5f75d5916a">
+                                                    <div class="scenario-docs card-header error" style="min-height:1.5em;">
                                                         <div>
                                                             <span class="scenario-heading">
-                                                                Ensure that Incident Analyst can move the ticket through the Incident states manually
+                                                                Ensure that Incident Copy action can copy Incident Details swiftly
                                                             </span>
                                                             <span class="scenario-result-icon">
                                                                 
 
-                                                                    <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i>
+                                                                    <i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i>
                                                             </span>
                                                         </div>
                                                         <div class="scenario-report-badges">
-                                                                <span class="scenario-report-badge" style="float:right;"><a href='0eee14d21a0dcc2283e2c14ca03f7e8108cd7ae1821487fbb9cdb13bbeb28b80.html' class='badge more-details'>Test Results</a></span>
+                                                                <span class="scenario-report-badge" style="float:right;"><a href='6bce70c3859603adf68061d957d8070cb2cc9f75251749f2383e74acb3d35e4e.html' class='badge more-details'>Test Results</a></span>
                                                         </div>
                                                     </div>
                                                     <div class="scenario-docs card-body">
                                                             <p>Given I Login to ServiceNow Application with valid credentials</p>
-                                                            <p>When I create new Incident and change its status to 'In Progress' .</p>
-                                                            <p>And I change Status to On 'Hold' With reason 'Awaiting Vendor' .</p>
-                                                            <p>Then I change status 'Closed' .</p>
+                                                            <p>When I create new incident and record its fields values</p>
+                                                            <p>Then I reopen it and click on copy Incident</p>
+                                                            <p>And I verify copied Incident has all data from Parent Incident and its Number is present</p>
                                                         <div class="examples">
                                                         </div>
 
@@ -287,10 +287,10 @@
                                             </div>
                                             <script>
 
-                                                var labels = ['100%', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
+                                                var labels = ['50%', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '50%', ' ', ' ', ' '];
                                                 // Our series array that contains series objects or in this case series data arrays
 
-                                                var series = [{meta: 'Passing tests (automated)', value: 1}, {meta: 'Passing tests (manual)', value: 0}, {meta: 'Pending tests (automated)', value: 0}, {meta: 'Pending tests (manual)', value: 0}, {meta: 'Ignored tests (automated)', value: 0}, {meta: 'Ignored tests (manual)', value: 0}, {meta: 'Skipped tests (automated)', value: 0}, {meta: 'Skipped tests (manual)', value: 0}, {meta: 'Failing tests (automated)', value: 0}, {meta: 'Failing tests (manual)', value: 0}, {meta: 'Broken tests (automated)', value: 0}, {meta: 'Broken tests (manual)', value: 0}, {meta: 'Compromised tests (automated)', value: 0}, {meta: 'Compromised tests (manual)', value: 0}];
+                                                var series = [{meta: 'Passing tests (automated)', value: 1}, {meta: 'Passing tests (manual)', value: 0}, {meta: 'Pending tests (automated)', value: 0}, {meta: 'Pending tests (manual)', value: 0}, {meta: 'Ignored tests (automated)', value: 0}, {meta: 'Ignored tests (manual)', value: 0}, {meta: 'Skipped tests (automated)', value: 0}, {meta: 'Skipped tests (manual)', value: 0}, {meta: 'Failing tests (automated)', value: 0}, {meta: 'Failing tests (manual)', value: 0}, {meta: 'Broken tests (automated)', value: 1}, {meta: 'Broken tests (manual)', value: 0}, {meta: 'Compromised tests (automated)', value: 0}, {meta: 'Compromised tests (manual)', value: 0}];
 
                                                 // As options we currently only set a static size of 300x200 px. We can also omit this and use aspect ratio containers
                                                 // as you saw in the previous example
@@ -332,7 +332,7 @@
                                                                                 class='fa fa-check-circle-o success-icon'></i>&nbsp;Passing</a>
                                                                     </td>
                                                 <td class="automated-stats">1</td>
-                                                <td class="automated-stats">100%</td>
+                                                <td class="automated-stats">50%</td>
                                             </tr>
                                             <tr>
                                                                     <td class="aggregate-result-count"><i
@@ -369,12 +369,12 @@
                                                 <td class="automated-stats">0</td>
                                                 <td class="automated-stats"> </td>
                                             <tr>
-                                                                <td class="aggregate-result-count indented-error-category">
-                                                                    <i
-                                                                            class='fa fa-exclamation-triangle error-icon'></i>&nbsp;Broken
-                                                                </td>
-                                                <td class="automated-stats">0</td>
-                                                <td class="automated-stats"> </td>
+                                                                    <td class="aggregate-result-count indented-error-category">
+                                                                        <a href="deb97afbb72005faf2bd7c43516c41fe5ade1840a207f3325246f7c2a52e7590.html"><i
+                                                                                class='fa fa-exclamation-triangle error-icon'></i>&nbsp;Broken</a>
+                                                                    </td>
+                                                <td class="automated-stats">1</td>
+                                                <td class="automated-stats">50%</td>
                                             <tr>
                                                                 <td class="aggregate-result-count indented-error-category">
                                                                     <i
@@ -385,7 +385,7 @@
                                             </tr>
                                             <tr class="summary-stats">
                                                 <td class="aggregate-result-count">Total</td>
-                                                <td class="automated-stats">1</td>
+                                                <td class="automated-stats">2</td>
                                                 <td class="automated-stats"></td>
                                             </tr>
                                             </tbody>
@@ -407,11 +407,11 @@
                                                     </thead>
                                                     <tbody>
                                                     <tr>
-                                                        <td> 3m 38s</td>
-                                                        <td>218ms</td>
-                                                        <td> 3m 38s</td>
-                                                        <td> 3m 38s</td>
-                                                        <td> 3m 38s</td>
+                                                        <td> 2m 51s</td>
+                                                        <td> 1h  53m 7s</td>
+                                                        <td> 1m 7s</td>
+                                                        <td> 1m 44s</td>
+                                                        <td> 1m 25s</td>
                                                     </tr>
                                                     </tbody>
                                                 </table>
@@ -436,14 +436,26 @@
                                                 <tbody>
                                                 <tr class="scenario-result SUCCESS">
                                                     <td>
-                                                            <a href="0eee14d21a0dcc2283e2c14ca03f7e8108cd7ae1821487fbb9cdb13bbeb28b80.html">Ensure that Incident Analyst can move the ticket through the Incident states manually</a>
+                                                            <a href="682f54e7eaf3c4fc9ec8b0d26744ae5c5809e56dc4ed3ea2d3d1257a7c725deb.html">Ensure that a new Incident has default field values</a>
                                                     </td>
-                                                    <td>4</td>
-                                                    <td>21:11:39</td>
-                                                    <td>03:38</td>
+                                                    <td>3</td>
+                                                    <td>18:08:54</td>
+                                                    <td>01:07</td>
                                                     <td>
                                                             <i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i> <span
                                                                 style="display:none">SUCCESS</span>
+                                                    </td>
+                                                </tr>
+                                                <tr class="scenario-result ERROR">
+                                                    <td>
+                                                            <a href="6bce70c3859603adf68061d957d8070cb2cc9f75251749f2383e74acb3d35e4e.html">Ensure that Incident Copy action can copy Incident Details swiftly</a>
+                                                    </td>
+                                                    <td>4</td>
+                                                    <td>20:02:02</td>
+                                                    <td>01:44</td>
+                                                    <td>
+                                                            <i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i> <span
+                                                                style="display:none">ERROR</span>
                                                     </td>
                                                 </tr>
                                                 </tbody>

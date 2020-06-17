@@ -1,6 +1,7 @@
 package com.SN.util;
 
 import net.thucydides.core.pages.PageObject;
+import java.text.DateFormat;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -82,4 +83,19 @@ public class Utility extends PageObject {
 	public static void load() throws InterruptedException {
 		Thread.sleep(10000);
 	}
+	public static String getcurrentdateandtime(){
+		String str = null;
+		try{
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		Date date = new Date();
+		str= dateFormat.format(date);
+		str = str.replace(" ", "").replaceAll("/", "").replaceAll(":", "");
+}
+catch(Exception e){
+
+}
+		return str;
+}
+
+
 }

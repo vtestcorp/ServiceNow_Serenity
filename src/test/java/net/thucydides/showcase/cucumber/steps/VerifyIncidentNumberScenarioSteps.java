@@ -289,6 +289,36 @@ public class VerifyIncidentNumberScenarioSteps {
 			e.printStackTrace();
 		}
 	}
+	
+	 @When("I create new Incident and Inspect default values on the new Incident form")
+	 public void  iCreateNewIncidentAndInspectDefaultValuesOnTheNewIncidentForm() {
+		 incident.check_default_value();
+	 }
+	 
+	 @Then("I verify list of Empty fields on the form")
+	 public void iVerifyListEmptyFieldsOnTheForm() {
+		 incident.verify_empty_field();
+		 
+	 }
+	 
+	 @When ("I create new incident and record its fields values")
+	 public void iCreateNewIncidentAndRecordItsFieldsValues() throws InterruptedException {
+		 incident.create_incident_record_fields();
+		 
+	 }
+	 
+	   @Then("I reopen it and click on copy Incident")
+	   public void iReopenItAndClickOnCopyIncident() {
+		   incident.copy_incident();
+		  
+		   
+	   }
+	   
+	   @And("I verify copied Incident has all data from Parent Incident and its Number is present")
+	   public void verifyDataCopiedFromParentIncident() {
+		   incident.verify_copied_incident();
+	   }
+
 
 	@Then("^User Change the Incident State to$")
 	public void user_Change_the_Incident_State_to(DataTable stateDropdown) {
